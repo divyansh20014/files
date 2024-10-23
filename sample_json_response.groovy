@@ -52,3 +52,28 @@ public class sample_json_response {
         }
     }
 }
+
+  <setHeader>
+        <header>csvId</header>
+        <constant>sample1</constant>
+    </setHeader>
+    
+    <setHeader>
+        <header>delimiter</header>
+        <constant>,</constant>
+    </setHeader>
+    
+    <setHeader>
+        <header>format</header>
+        <constant>csv</constant>
+    </setHeader>
+    
+    <setHeader>
+        <header>mapperId</header>
+        <constant>csvMap1</constant>
+    </setHeader>
+    
+    <setHeader>
+        <header>useSrcMap</header>
+        <constant>NO</constant>
+    </setHeader>
