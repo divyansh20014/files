@@ -1,0 +1,59 @@
+Request URL: /evaluateRiskFinancial
+Request method: POST
+Request headers:
+ChannelCode
+x-fapi-interaction-id
+
+Request body:
+{
+  "Data": {
+	"EFMSChannelReferenceNumber” : "string",
+    "Action": "string",
+	"TransactionCode": "string",
+    "TransferType": "string",
+    "ActualTransactionDateTime": "2024-10-16T15:57:36.650Z",
+    "CustomerID": "string",
+	"PaymentType": "string",
+    "TpBalance":  0,
+    "AccountNumber": "string",
+    "ChannelDailyLimit": 0,
+    "AccountBalance": 0,
+    "AmountInAED": 0,
+    "AmountInTransactionCurrency": 0,
+    "TransactionCurrencyCode": "string",
+    "CarrierCountry": "string",
+    "ClientIPAddress": "string",
+    "BeneficiaryCountry": "string",
+    "BeneficiaryBankName": "string",
+    "BeneficiaryAccountNumber": "string",
+    "IsStaff": true,
+    "Platform": "string",
+    "DeviceName": "string",
+    "OrganizationName": "string",
+    "TransactionDescription": "string",
+	"AutheticationMethod": "string",
+    "BeneficiaryName": "string",
+    "BeneficiaryID": "string",
+	"SourceDeviceId": "string",
+    "DeviceIdType": "string",
+    "DeviceIdValue": "string",
+    "CasaBalance": 0,
+    "CardStatus": "string",
+    "CardNumber": "string",
+    "MerchantID": "string",
+    "MerchantName": "string",
+    "CreditCardLimit": 0
+  }
+}
+
+Response:
+{
+  
+  "Data": {
+	"EFMSChannelReferenceNumber” : "string",
+	"CustomerID": "string", 
+	"EfmsResponse": "string"
+}
+ 
+}
+

@@ -1,0 +1,36 @@
+Request URL: /postEvaluateRiskEfms
+Request method: POST
+Request headers:
+ChannelCode
+x-fapi-interaction-id
+
+{
+  "Data": {
+	"EFMSChannelReferenceNumber” : "string",
+    "Action": "string",
+    "TransactionCode": "string",
+    "ActualTransactionDateTime": "2024-10-16T15:57:59.246Z",
+    "CustomerID": "string",
+    "DeviceIdValue": "string",
+	"SourceDeviceId": "string",
+    "CarrierCountry": "string",
+    "ClientIPAddress": "string",
+    "AutheticationMethod": "string",
+    "DeviceType": "string",
+    "DeviceModel": "string",
+    "TransactionDescription": "string",
+    "BeneficiaryAccountNumber": "string"
+  }
+}
+
+
+Response:
+{
+  
+  "Data": {
+	"EFMSChannelReferenceNumber” : "string",
+	"CustomerID": "string", 
+	"EfmsResponse": "string"
+
+}
+}

@@ -1,0 +1,43 @@
+Request URL: /dataFeedPostingToEFMS
+Request method: POST
+Request headers:
+ChannelCode
+x-fapi-interaction-id
+
+Request body:
+{
+  "Data": {
+	"EFMSChannelReferenceNumber” : "string",
+    "Action": "string",
+    "TransactionCode": "string",
+    "ActualTransactionDateTime": "2024-10-16T15:57:59.246Z",
+    "CustomerID": "string",
+    "DeviceIdValue": "string",
+    "SourceDeviceId": "string",
+    "CarrierCountry": "string",
+    "ClientIPAddress": "string",
+    "AutheticationMethod": "string",
+    "DeviceType": "string",
+    "DeviceModel": "string",
+    "OrganizationName": "string",
+    "TransactionDescription": "string",
+    "IsStaff": true,
+    "Language": "string",
+    "NewMobileNumber": "string",
+    "NewEmailID": "string",
+    "Platform": "string",
+    "DeviceName": "string",
+    "CardStatus": "string",
+    "CardNumber": "string",
+  }
+}
+
+Response:
+{
+  "Data": {
+			"EFMSChannelReferenceNumber” : "string",
+            "CustomerID": "string",
+            "EfmsResponse": "string",
+
+  }
+}
