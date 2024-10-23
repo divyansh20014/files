@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sample mapping equivalent to a ping request. -->
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://www.sas.com/sfm/eop"
+    xsi:schemaLocation="http://www.sas.com/sfm/eop mapping.xsd">
+    
+    <messages name="SEPA">
+        <message messageType="csvMap1" subType="1.0" mapperId="csvMap1">
+			<fields>
+			
+				<field name="smh_tran_type" default="TRX"/>
+
+				<field name="smh_cust_type" default="B"/>
+					
+				<field name="smh_acct_type" default="CC"/>
+				
+				<field name="smh_authenticate_mtd" default="CP"/>
+				
+				<field name="smh_channel_type" default="D"/>
+
+				<field name="smh_activity_type" default="BF"/>
+				
+				<field name="smh_activity_detail1" default="DBA"/>
+				
+				<field name="smh_activity_detail2" default="DEE"/>
+				
+				<field name="smh_activity_detail3" default="DUA"/>
+				
+				<field name="smh_msg_type" default="1"/>
+
+				<field name="smh_resp_req" default="1"/>
+				
+				<field name="smh_priority" default="5"/>
+				
+				<field name="smh_sdd_ind" default="1"/>
+				
+				<field name="smh_multi_org_name" default="GLOBAL"/>
+				
+				<field name="smh_dest" default="SFME"/>
+				
+				<field name="smh_source">
+					<srcField name="source" />
+				</field>
+				<field name="rqo_tran_date" >
+					<srcField name="tran_date" />
+				</field>
+				<field name="rqo_tran_time" >
+					<srcField name="tran_time" />
+				</field>
+				<field name="rqo_tran_date_alt" >
+					<srcField name="tran_date_alt" />
+				</field>
+				<field name="rqo_tran_time_alt" >
+					<srcField name="tran_time_alt" />
+				</field>
+				<field name="xqo_cust_num" >
+					<srcField name="merchant_id" />
+				</field>
+				<field name="ucm_term_pin_entry_cap" >
+					<srcField name="term_pin_entry_cap" />
+				</field>
+				<field name="ucm_card_exp_date" >
+					<srcField name="card_exp_date" />
+				</field>
+				<field name="ucm_acs_refer_code" >
+					<srcField name="pos_condition_code" />
+				</field>
+				
+				<field name="hqo_card_num" >
+					<srcField name="card_num" />
+				</field>
+				<field name="hqo_msg_type" >
+					<srcField name="msg_type" />
+				</field>
+				<field name="hct_ch_post_code" >
+					<srcField name="terminal_id" />
+				</field>
+				<field name="hct_ch_cntry_code" >
+					<srcField name="issuer_cntry_code" />
+				</field>
+				<field name="hct_asso_dec_code" >
+					<srcField name="response_code" />
+				</field>
+				<field name="hct_term_owner_id" >
+					<srcField name="merchant_id" />
+				</field>
+				<field name="hct_mer_mcc" >
+					<srcField name="merchant_mcc" />
+				</field>
+				<field name="hct_term_id" >
+					<srcField name="issuer_bin" />
+				</field>
+				<field name="hct_term_city" >
+					<srcField name="merchant_city" />
+				</field>
+				<field name="hct_term_cntry_code" >
+					<srcField name="merchant_cntry_code" />
+				</field>
+				<field name="hct_term_owner_name_lcl" >
+					<srcField name="merchant_name" />
+				</field>
+				<field name="hdf_bwsr_type" >
+					<srcField name="service_Code" />
+				</field>
+				<field name="hdf_http_accept" >
+					<srcField name="merchant_address" />
+				</field>
+				<field name="tbt_ref_num" >
+					<srcField name="tbt_ref_num" />
+				</field>
+				<field name="tbt_tran_status" >
+					<srcField name="tran_status" />
+				</field>
+				<field name="tbt_tran_amt" >
+					<srcField name="tran_amt" />
+				</field>
+				<field name="tbt_tran_curr_code" >
+					<srcField name="tran_curr_code" />
+				</field>
+				<field name="tbt_mod_amt" >
+					<srcField name="mod_amt" />
+				</field>
+				<field name="tbt_bill_sub_cat" >
+					<srcField name="settle_curr_code" />
+				</field>
+				<field name="tbt_group_amt" >
+					<srcField name="settle_amount" />
+				</field>
+				<field name="tpp_city" >
+					<srcField name="product_name" />
+				</field>
+				<field name="tpp_post_code" >
+					<srcField name="auth_id" />
+				</field>
+				<field name="tpp_bank_name" >
+					<srcField name="merchant_bank_name" />
+				</field>
+				<field name="tpp_acct_num" >
+					<srcField name="merchant_acct_num" />
+				</field>
+				<field name="tpp_curr_code" >
+					<srcField name="billing_curr_code" />
+				</field>
+				<field name="tpp_description" >
+					<srcField name="merchant_rm" />
+				</field>
+				<field name="rua_2byte_string_004" >
+					<srcField name="trans_type" />
+				</field>
+				<field name="rua_2byte_string_007" >
+					<srcField name="remitt_acct_type" />
+				</field>
+				<field name="rua_2byte_string_008" >
+					<srcField name="bene_acct_type" />
+				</field>
+				<field name="rur_4byte_string_003" >
+					<srcField name="pos_entry_mode" />
+				</field>
+				<field name="rur_4byte_string_004" >
+					<srcField name="eci_ind" />
+				</field>
+				<field name="rur_30byte_string_004" >
+					<srcField name="tbt_ref_num" />
+				</field>
+				<field name="smh_client_tran_type" >
+					<srcField name="client_tran_type" />
+				</field>
+				<field name="RUR_30BYTE_STRING_003" >
+					<srcField name="acquirer_reference_number" />
+				</field>
+				<field name="RUA_30BYTE_STRING_001" >
+					<srcField name="ref_num_rrn" />
+				</field>
+	        </fields>
+        </message>
+    </messages>
+</application>

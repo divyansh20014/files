@@ -1,0 +1,8 @@
+# This CSV mapping information contains a line for unique key for CSV formats, and
+# another line for Comma Separated Names.
+# This is the CSV format for a ping request.
+# The input csv data could be: 04.03.08,1,CMD
+sample1
+source,tran_date,tran_time,tran_date_alt,tran_time_alt,merchant_id,term_pin_entry_cap,card_exp_date,pos_condition_code,card_num,msg_type,terminal_id,issuer_cntry_code,response_code,merchant_mcc,issuer_bin,merchant_city,merchant_cntry_code,merchant_name,service_Code,merchant_address,tbt_ref_num,tran_status,tran_amt,tran_curr_code,mod_amt,settle_curr_code,settle_amount,product_name,auth_id,merchant_bank_name,merchant_acct_num,billing_curr_code,merchant_rm,trans_type,remitt_acct_type,bene_acct_type,pos_entry_mode,eci_ind,ref_num_rrn,client_tran_type,acquirer_reference_number
+#version,needResponse,tran type
+#04.03.08,1,CMD
