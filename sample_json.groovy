@@ -128,3 +128,87 @@ public class sample_json {
         }
     }
 }
+
+import org.apache.camel.Exchange;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+
+public class SampleJson {
+    public String jsonMapping(Exchange exchange) {
+        String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new java.util.Date());
+        System.out.println("Message received from ATB Acquiring: " + timestamp);
+        
+        String textJson = exchange.getIn().getBody(String.class);
+        System.out.println("JSON Payload: " + textJson);
+
+        // Check if the JSON string is not empty
+        if (textJson != null && !textJson.isEmpty()) {
+            // Parse the JSON string
+            JSONObject jsonObject = new JSONObject(textJson);
+
+            // Using optString to avoid NullPointerException
+            String source = jsonObject.optString("source", " ");
+            String tran_date = jsonObject.optString("tran_date", " ");
+            String tran_time = jsonObject.optString("tran_time", " ");
+            String tran_date_alt = jsonObject.optString("tran_date_alt", " ");
+            String tran_time_alt = jsonObject.optString("tran_time_alt", " ");
+            String merchant_id = jsonObject.optString("merchant_id", " ");
+            String term_pin_entry_cap = jsonObject.optString("term_pin_entry_cap", " ");
+            String card_exp_date = jsonObject.optString("card_exp_date", " ");
+            String pos_condition_code = jsonObject.optString("pos_condition_code", " ");
+            String card_num = jsonObject.optString("card_num", " ");
+            String msg_type = jsonObject.optString("msg_type", " ");
+            String terminal_id = jsonObject.optString("terminal_id", " ");
+            String issuer_cntry_code = jsonObject.optString("issuer_cntry_code", " ");
+            String response_code = jsonObject.optString("response_code", " ");
+            String merchant_mcc = jsonObject.optString("merchant_mcc", " ");
+            String issuer_bin = jsonObject.optString("issuer_bin", " ");
+            String merchant_city = jsonObject.optString("merchant_city", " ");
+            String merchant_cntry_code = jsonObject.optString("merchant_cntry_code", " ");
+            String merchant_name = jsonObject.optString("merchant_name", " ");
+            String service_Code = jsonObject.optString("service_Code", " ");
+            String merchant_address = jsonObject.optString("merchant_address", " ");
+            String tbt_ref_num = jsonObject.optString("tbt_ref_num", " ");
+            String tran_status = jsonObject.optString("tran_status", " ");
+            String tran_amt = jsonObject.optString("tran_amt", " ");
+            String tran_curr_code = jsonObject.optString("tran_curr_code", " ");
+            String mod_amt = jsonObject.optString("mod_amt", " ");
+            String settle_curr_code = jsonObject.optString("settle_curr_code", " ");
+            String settle_amount = jsonObject.optString("settle_amount", " ");
+            String product_name = jsonObject.optString("product_name", " ");
+            String auth_id = jsonObject.optString("auth_id", " ");
+            String merchant_bank_name = jsonObject.optString("merchant_bank_name", " ");
+            String merchant_acct_num = jsonObject.optString("merchant_acct_num", " ");
+            String billing_curr_code = jsonObject.optString("billing_curr_code", " ");
+            String merchant_rm = jsonObject.optString("merchant_rm", " ");
+            String trans_type = jsonObject.optString("trans_type", " ");
+            String remitt_acct_type = jsonObject.optString("remitt_acct_type", " ");
+            String bene_acct_type = jsonObject.optString("bene_acct_type", " ");
+            String pos_entry_mode = jsonObject.optString("pos_entry_mode", " ");
+            String eci_ind = jsonObject.optString("eci_ind", " ");
+            String ref_num_rrn = jsonObject.optString("ref_num_rrn", " ");
+            String client_tran_type = jsonObject.optString("client_tran_type", " ");
+            String acquirer_reference_number = jsonObject.optString("acquirer_reference_number", " ");
+
+            // Building the final string
+            String JSONString1 = String.join(",", 
+                source, tran_date, tran_time, tran_date_alt, tran_time_alt, 
+                merchant_id, term_pin_entry_cap, card_exp_date, pos_condition_code, 
+                card_num, msg_type, terminal_id, issuer_cntry_code, response_code, 
+                merchant_mcc, issuer_bin, merchant_city, merchant_cntry_code, 
+                merchant_name, service_Code, merchant_address, tbt_ref_num, 
+                tran_status, tran_amt, tran_curr_code, mod_amt, settle_curr_code, 
+                settle_amount, product_name, auth_id, merchant_bank_name, 
+                merchant_acct_num, billing_curr_code, merchant_rm, trans_type, 
+                remitt_acct_type, bene_acct_type, pos_entry_mode, eci_ind, 
+                ref_num_rrn, client_tran_type, acquirer_reference_number
+            );
+
+            return JSONString1;
+        } else {
+            System.out.println("JSON data is empty or null.");
+            return null;
+        }
+    }
+}
