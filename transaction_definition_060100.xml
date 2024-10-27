@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TxnDefinition version="06.01.00" alias="06.01.00,04.03.07,04.03.06,04.04.02,04.04.03,04.02.10">
+    <field name="smh_tran_type">
+        <value value="TRX">
+            <requires>SMH,RRR,RQO,RUA,ROB,RDK,RUR</requires>
+        </value>
+        <value value="CMD">
+            <requires>SMH,SCC</requires>
+        </value>
+        <value value="MON">
+            <requires>SMH</requires>
+        </value>
+        <value value="DMA">
+            <requires>SMH</requires>
+        </value>
+    </field>
+
+    <field name="smh_cust_type">
+        <value value="B">
+            <requires>XQO</requires>
+        </value>
+        <value value="I">
+            <requires>XQO</requires>
+        </value>
+        <value value="N">
+            <requires></requires>
+        </value>
+    </field>
+
+    <field name="smh_acct_type">
+        <value value="CC">
+            <requires>AQO,AQC</requires>
+        </value>
+        <value value="CS">
+            <requires>AQO,AQD</requires>
+        </value>
+        <value value="SL">
+            <requires>AQO,AQS</requires>
+        </value>
+        <value value="LC">
+            <requires>AQO,AQL</requires>
+        </value>
+        <value value="BR">
+            <requires>AQO,AQB,AQR</requires>
+        </value>
+        <value value="MA">
+            <requires>AQM</requires>
+        </value>
+        <value value="NA">
+            <requires></requires>
+        </value>
+    </field>
+
+    <field name="smh_authenticate_mtd">
+        <value value="CP">
+            <requires>UCM,UCC</requires>
+        </value>
+        <value value="CD">
+            <requires>UCM</requires>
+        </value>
+        <value value="NC">
+            <requires>UNM</requires>
+        </value>
+        <value value="BT">
+            <requires>UBT</requires>
+        </value>
+        <value value="UK">
+            <requires></requires>
+        </value>
+        <value value="NA">
+            <requires></requires>
+        </value>
+    </field>
+
+    <field name="smh_channel_type">
+        <value value="C">
+            <requires>HQO,HCT</requires>
+        </value>
+        <value value="D">
+            <requires>HQO,HCT,HOB,HDF</requires>
+        </value>
+        <value value="E">
+            <requires>HQO,HCT,HOB</requires>
+        </value>
+        <value value="O">
+            <requires>HQO,HOB</requires>
+        </value>
+        <value value="W">
+            <requires>HQO,HOB,HDF</requires>
+        </value>
+        <value value="P">
+            <requires>HQO,HPB</requires>
+        </value>
+        <value value="H">
+            <requires>HQO,HBB</requires>
+        </value>
+        <value value="M">
+            <requires>HQO,HCP</requires>
+        </value>
+        <value value="B">
+            <requires>HQO,HBP</requires>
+        </value>
+        <value value="R">
+            <requires>HQO,HOT</requires>
+        </value>
+        <value value="F">
+            <requires>HFC</requires>
+        </value>
+        <value value="T">
+            <requires>HQM</requires>
+        </value>
+        <value value="S">
+            <requires>HDF,HQM</requires>
+        </value>
+        <value value="U">
+            <requires>HQO</requires>
+        </value>
+        <value value="N">
+            <requires></requires>
+        </value>
+    </field>
+
+    <field name="smh_activity_type">
+        <value value="CA">
+            <requires>TCA</requires>
+        </value>
+        <value value="CP">
+            <requires>TCP</requires>
+        </value>
+        <value value="FM">
+            <requires>TCM</requires>
+        </value>
+        <value value="SH">
+            <requires>TSH,TPP</requires>
+        </value>
+        <value value="BF">
+            <requires>TBT,TPP</requires>
+        </value>
+        <value value="CK">
+            <requires>TCK,TPP</requires>
+        </value>
+        <value value="DP">
+            <requires>TDP,TPP</requires>
+        </value>
+        <value value="CW">
+            <requires>TCW,TPP</requires>
+        </value>
+        <value value="AB">
+            <requires>TAQ,TAB</requires>
+        </value>
+        <value value="AE">
+            <requires>TAQ,TAE,TPP</requires>
+        </value>
+        <value value="NM">
+            <requires>TNG</requires>
+        </value>
+        <value value="MI">
+            <requires>TMI</requires>
+        </value>
+        <value value="MB">
+            <requires>TMB</requires>
+        </value>
+        <value value="MC">
+            <requires>TMC</requires>
+        </value>
+        <value value="MR">
+            <requires>TMR</requires>
+        </value>
+        <value value="MD">
+            <requires>TMD</requires>
+        </value>
+        <value value="MS">
+            <requires>TMS</requires>
+        </value>
+        <value value="ML">
+            <requires>TML</requires>
+        </value>
+        <value value="MO">
+            <requires>TMO</requires>
+        </value>
+        <value value="MP">
+            <requires>TMP</requires>
+        </value>
+        <value value="ME">
+            <requires>TME</requires>
+        </value>
+        <value value="M2">
+            <requires>TMI,TMR,TMC</requires>
+        </value>
+        <value value="M3">
+            <requires>TMI,TMC</requires>
+        </value>
+        <value value="ST">
+            <requires>TST,TSR</requires>
+        </value>
+        <value value="MM">
+            <requires>TMM</requires>
+        </value>
+        <value value="MT">
+            <requires>TMT</requires>
+        </value>
+        <value value="UK">
+            <requires></requires>
+        </value>
+    </field>
+
+    <!-- those 3 have the same list of values and required segments. -->
+    <field name="smh_activity_detail1,smh_activity_detail2,smh_activity_detail3">
+        <value value="NAP">
+            <requires></requires>
+        </value>
+        <value value="DNA">
+            <requires>DNA</requires>
+        </value>
+        <value value="DNP">
+            <requires>DNP</requires>
+        </value>
+        <value value="DNC">
+            <requires>DNC</requires>
+        </value>
+        <value value="DNU">
+            <requires>DNU</requires>
+        </value>
+        <value value="DNR">
+            <requires>DNR</requires>
+        </value>
+        <value value="DNS">
+            <requires>DNS</requires>
+        </value>
+        <value value="DNO">
+            <requires>DNO</requires>
+        </value>
+        <value value="DNX">
+            <requires>DNX</requires>
+        </value>
+        <value value="DCB">
+            <requires>DCB</requires>
+        </value>
+        <value value="DCC">
+            <requires>DCC</requires>
+        </value>
+        <value value="DCQ">
+            <requires>DCQ</requires>
+        </value>
+        <value value="DBA">
+            <requires>DBA</requires>
+        </value>
+        <value value="DMX">
+            <requires>DMX</requires>
+        </value>
+        <value value="DEE">
+            <requires>DEE</requires>
+        </value>
+        <value value="DPD">
+            <requires>DPD</requires>
+        </value>
+        <value value="DPP">
+            <requires>DPP</requires>
+        </value>
+        <value value="DUA">
+            <requires>DUA</requires>
+        </value>
+        <value value="DUS">
+            <requires>DUS</requires>
+        </value>
+        <value value="DCH">
+            <requires>DCH</requires>
+        </value>
+    </field>
+</TxnDefinition>
