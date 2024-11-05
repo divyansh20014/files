@@ -28,7 +28,7 @@ import com.sas.finance.fraud.transaction.util.Utils;
 
 public class JsonMapping{
 	
-	 public String AccountNumber = "", OrganizationName = "", ActualTransactionDateTime = "", AutheticationMethod = "", BeneficiaryAccountNumber = "", BeneficiaryBankCountryCode = "", BeneficiaryBankName = "", BeneficiaryCountry = "", BeneficiaryID = "", BeneficiaryName = "", BeneficiaryType = "", ChannelDailyLimit = "", CasaBalance = "", CarrierCountry = "", DeviceIdValue = "", DeviceName = "", Platform = "", IsStaff = "", ClientIPAddress = "", AmountInTransactionCurrency = "", AmountInAED = "", TransactionCurrencyCode = "", TransactionDescription = "", Action = "", CustomerID = "";
+	 public String AccountNumber = "", OrganizationName = "", ActualTransactionDateTime = "", AutheticationMethod = "", BeneficiaryAccountNumber = "", BeneficiaryBankCountryCode = "", BeneficiaryBankName = "", BeneficiaryCountry = "", BeneficiaryID = "", BeneficiaryName = "", BeneficiaryType = "", ChannelDailyLimit = "", CasaBalance = "", CarrierCountry = "", DeviceIdValue = "", DeviceName = "", Platform = "", IsStaff = "", ClientIPAddress = "", AmountInTransactionCurrency = "", AmountInAED = "", TransactionCurrencyCode = "", TransactionDescription = "", Action = "", CustomerID = "",tranDate = "",tranTime = "";
 
 	
 	public static String odeHost;
@@ -104,13 +104,12 @@ public class JsonMapping{
 		Field smh_activity_detail2 = api.getField("smh_activity_detail2");
 		Field smh_activity_detail3 = api.getField("smh_activity_detail3");
         Field smh_cust_type = api.getField("smh_cust_type");
-        Field smh_authenticate_mtd = api.getField("smh_authenticate_mtd");
+       // Field smh_authenticate_mtd = api.getField("smh_authenticate_mtd");
         Field smh_channel_type = api.getField("smh_channel_type");
         Field smh_multi_org_name = api.getField("smh_multi_org_name");
         Field smh_client_tran_type = api.getField("smh_client_tran_type");
 
-        Field rqo_tran_date = api.getField("rqo_tran_date"); 
-        Field rqo_tran_time = api.getField("rqo_tran_time");
+
         
         Field tbt_tran_amt = api.getField("tbt_tran_amt");
 		
@@ -120,97 +119,95 @@ public class JsonMapping{
 		smh_activity_detail3.encodeText(txn, "DNU");
 		smh_cust_type.encodeText(txn, "I");
 		smh_acct_type.encodeText(txn, "CS");
-		smh_authenticate_mtd.encodeText(txn, "NC");
+		//smh_authenticate_mtd.encodeText(txn, "NC");
 		smh_channel_type.encodeText(txn, "O");
 		smh_activity_type.encodeText(txn, "BF");
 		smh_resp_req.encodeText(txn, "1");
 		
 		Field tpp_acct_num = api.getField("tpp_acct_num");
-		tpp_acct_num.encodeText(txn, (String) body.get("BeneficiaryAccountNumber"));
-
-		Field smh_cust_type = api.getField("smh_cust_type");
-		smh_cust_type.encodeText(txn, (String) body.get("OrganizationName"));
+		tpp_acct_num.encodeText(txn, BeneficiaryAccountNumber);
 
 		Field rqo_tran_time = api.getField("rqo_tran_time");
-		rqo_tran_time.encodeText(txn, (String) body.get("ActualTransactionDateTime"));
+		rqo_tran_time.encodeText(txn, tranTime);
 
 		Field rqo_tran_date = api.getField("rqo_tran_date");
-		rqo_tran_date.encodeText(txn, (String) body.get("ActualTransactionDateTime"));
+		rqo_tran_date.encodeText(txn, tranDate);
 
 		Field smh_authenticate_mtd = api.getField("smh_authenticate_mtd");
-		smh_authenticate_mtd.encodeText(txn, (String) body.get("AutheticationMethod"));
+		smh_authenticate_mtd.encodeText(txn, AutheticationMethod);
 
 		Field tpp_bank_cntry_code = api.getField("tpp_bank_cntry_code");
-		tpp_bank_cntry_code.encodeText(txn, (String) body.get("BeneficiaryBankCountryCode"));
+		tpp_bank_cntry_code.encodeText(txn, BeneficiaryBankCountryCode);
 
 		Field tpp_bank_name = api.getField("tpp_bank_name");
-		tpp_bank_name.encodeText(txn, (String) body.get("BeneficiaryBankName"));
+		tpp_bank_name.encodeText(txn, BeneficiaryBankName);
 
 		Field tpp_cntry_code = api.getField("tpp_cntry_code");
-		tpp_cntry_code.encodeText(txn, (String) body.get("BeneficiaryCountry"));
+		tpp_cntry_code.encodeText(txn, BeneficiaryCountry);
 
 		Field tpp_num = api.getField("tpp_num");
-		tpp_num.encodeText(txn, (String) body.get("BeneficiaryID"));
+		tpp_num.encodeText(txn, BeneficiaryID);
 
 		Field tpp_name = api.getField("tpp_name");
-		tpp_name.encodeText(txn, (String) body.get("BeneficiaryName"));
+		tpp_name.encodeText(txn, BeneficiaryName);
 
 		Field rua_8byte_string_001 = api.getField("rua_8byte_string_001");
-		rua_8byte_string_001.encodeText(txn, (String) body.get("BeneficiaryType"));
+		rua_8byte_string_001.encodeText(txn, BeneficiaryType);
 
 		Field hqo_limit_amt = api.getField("hqo_limit_amt");
-		hqo_limit_amt.encodeText(txn, (String) body.get("ChannelDailyLimit"));
+		hqo_limit_amt.encodeText(txn, ChannelDailyLimit);
 
 		Field smh_cust_type_xqo_cust_type = api.getField("smh_cust_type/xqo_cust_type");
-		smh_cust_type_xqo_cust_type.encodeText(txn, (String) body.get("OrganizationName"));
+		smh_cust_type_xqo_cust_type.encodeText(txn, OrganizationName);
 
 		Field aqd_avail_bal = api.getField("aqd_avail_bal");
-		aqd_avail_bal.encodeText(txn, (String) body.get("CasaBalance"));
+		aqd_avail_bal.encodeText(txn, CasaBalance);
 
 		Field hob_ip_cntry_code = api.getField("hob_ip_cntry_code");
-		hob_ip_cntry_code.encodeText(txn, (String) body.get("CarrierCountry"));
+		hob_ip_cntry_code.encodeText(txn, CarrierCountry);
 
 		Field hqo_device_id = api.getField("hqo_device_id");
-		hqo_device_id.encodeText(txn, (String) body.get("DeviceIdValue"));
+		hqo_device_id.encodeText(txn, DeviceIdValue);
 
 		Field hqo_msg_type = api.getField("hqo_msg_type");
-		hqo_msg_type.encodeText(txn, (String) body.get("DeviceName"));
+		hqo_msg_type.encodeText(txn, DeviceName);
 
 		Field hqo_device_id_type = api.getField("hqo_device_id_type");
-		hqo_device_id_type.encodeText(txn, (String) body.get("Platform"));
+		hqo_device_id_type.encodeText(txn, Platform);
 
 		Field xqo_emp_flg = api.getField("xqo_emp_flg");
-		xqo_emp_flg.encodeText(txn, (String) body.get("IsStaff"));
+		xqo_emp_flg.encodeText(txn, IsStaff);
 
 		Field hob_ip_address = api.getField("hob_ip_address");
-		hob_ip_address.encodeText(txn, (String) body.get("ClientIPAddress"));
+		hob_ip_address.encodeText(txn, ClientIPAddress);
 
 		Field tbt_tran_amt = api.getField("tbt_tran_amt");
-		tbt_tran_amt.encodeText(txn, (String) body.get("AmountInTransactionCurrency"));
+		tbt_tran_amt.encodeText(txn, AmountInTransactionCurrency);
 
 		Field tbt_billing_amt = api.getField("tbt_billing_amt");
-		tbt_billing_amt.encodeText(txn, (String) body.get("AmountInAED"));
+		tbt_billing_amt.encodeText(txn, AmountInAED);
 
 		Field tbt_tran_curr_code = api.getField("tbt_tran_curr_code");
-		tbt_tran_curr_code.encodeText(txn, (String) body.get("TransactionCurrencyCode"));
+		tbt_tran_curr_code.encodeText(txn, TransactionCurrencyCode);
 
 		Field tbt_description = api.getField("tbt_description");
-		tbt_description.encodeText(txn, (String) body.get("TransactionDescription"));
+		tbt_description.encodeText(txn, TransactionDescription);
 
 		Field tbt_tran_status = api.getField("tbt_tran_status");
 		tbt_tran_status.encodeText(txn, "");  // No mapping, empty string
 
 		Field tbt_tran_type = api.getField("tbt_tran_type");
-		tbt_tran_type.encodeText(txn, (String) body.get("Action"));
+		tbt_tran_type.encodeText(txn, Action);
 
 		Field xqo_cust_num = api.getField("xqo_cust_num");
-		xqo_cust_num.encodeText(txn, (String) body.get("CustomerID"));
+		xqo_cust_num.encodeText(txn, CustomerID);
 
 		Field tbt_ref_num = api.getField("tbt_ref_num");
 		tbt_ref_num.encodeText(txn, "");  // No mapping, empty string
 
 		Field rua_2byte_string_001 = api.getField("rua_2byte_string_001");
 		rua_2byte_string_001.encodeText(txn, "");  // No mapping, empty string
+
 
 		
 		send(lc, txn);  	
@@ -259,6 +256,7 @@ public class JsonMapping{
 	       String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new java.util.Date());
            System.out.println("Message received from ATB Acquiring: " + timestamp);
 
+			String textJson = exchange.getIn().getBody(String.class);
         // Check if the JSON string is not empty
            if (textJson != null && !textJson.isEmpty()) {
             // Parse the JSON string
@@ -291,6 +289,28 @@ public class JsonMapping{
 		TransactionDescription = jsonObject.optString("TransactionDescription", "");
 		Action = jsonObject.optString("Action", "");
 		CustomerID = jsonObject.optString("CustomerID", "");
+		
+
+
+        try {
+            if (ActualTransactionDateTime != null && !ActualTransactionDateTime.isEmpty()) {
+                // Parse the ActualTransactionDateTime field to extract date and time
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"); // Input format
+                Date date = sdf.parse(ActualTransactionDateTime);
+
+                // Extract the date part
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                tranDate = dateFormat.format(date);
+
+                // Extract the time part
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss.SSS");
+                tranTime = timeFormat.format(date);
+
+                System.out.println("Date: " + tranDate + ", Time: " + tranTime);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
 				
 				try{
@@ -298,7 +318,7 @@ public class JsonMapping{
 					Locale.setDefault(Locale.US);
 					
 							odePort = 5018;
-							odeHost = 'adb52au';
+							odeHost = "adb52au";
 							
 							connect(odeHost,odePort);
 								System.out.println(" Connection established ");
