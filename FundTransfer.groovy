@@ -343,3 +343,16 @@ public class JsonMapping{
 
 
 curl -X POST https://your-server-url.com/endpoint -H "Content-Type: application/json" -d '{"AccountNumber": "12", "OrganizationName": "AB", "ActualTransactionDateTime": "2024-11-05T12:34:56.789Z", "AutheticationMethod": "AX", "BeneficiaryAccountNumber": "34", "BeneficiaryBankCountryCode": "US", "BeneficiaryBankName": "BC", "BeneficiaryCountry": "IN", "BeneficiaryID": "56", "BeneficiaryName": "CD", "BeneficiaryType": "EF", "ChannelDailyLimit": "78", "CasaBalance": "90", "CarrierCountry": "ZA", "DeviceIdValue": "01", "DeviceName": "XY", "Platform": "MP", "IsStaff": "NO", "ClientIPAddress": "192.168.01", "AmountInTransactionCurrency": "23", "AmountInAED": "45", "TransactionCurrencyCode": "USD", "TransactionDescription": "TX", "Action": "AB", "CustomerID": "CS", "tranDate": "2024-11-05", "tranTime": "12:34:56.789"}'
+SimpleDateFormat inputDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            Date date = inputDateFormat.parse(ActualTransactionDateTime);
+
+            // Format the date part (YYMMDD format)
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMdd");
+            String tranDate = dateFormat.format(date); // Result: "241016" (for 2024-10-16)
+
+            // Format the time part (HH:mm:ss.SS format)
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss.SSS");
+            String tranTime = timeFormat.format(date); // Result: "15:57:59.246"
+
+            // You can format the time part further to get two digits for milliseconds
+            tranTime = tranTime.substring(0, 8) + "." + tranTime.substring(9, 11); // Result: "15:57:59.24"
