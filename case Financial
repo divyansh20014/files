@@ -1,0 +1,22 @@
+<choice>
+    <when>
+        <!-- Check if the Action is a Fund Transfer action code -->
+        <simple>${body.Data.Action} in ['ASM', 'ASB', 'AYQC', 'ATAFT', 'AMEX', 'IOL', 'ITWU', 'ITWA', 'OBCCP', 'FTAB', 'FTAA']</simple>
+        <to ref="fundTransferBean" />
+    </when>
+    <when>
+        <!-- Check if the Action is a Bill Payment action code -->
+        <simple>${body.Data.Action} in ['BPAAADC', 'BPAADDC', 'BPADEWA', 'BPADU', 'BPAEMP', 'BPAETI', 'BPAFEWA', 'BPAFD', 'BPAIBP', 'BPANOL', 'BPASAL', 'BPASF', 'BPASEWA', 'BSAADC', 'BSADDC', 'BSDEWA', 'BSDU', 'BSEMP', 'BSETI', 'BSFEWA', 'BSFD', 'BSIBP', 'BSNOL', 'BSSAL', 'BSSF', 'BSSEWA', 'BPRAADC', 'BPRADDC', 'BPRDEWA', 'BPRDU', 'BPREMP', 'BPRETI', 'BPRFEWA', 'BPRFD', 'BPRIBL', 'BPRNOL', 'BPRSAL', 'BPRSF', 'BPRSEWA']</simple>
+        <to ref="billPaymentBean" />
+    </when>
+    <otherwise>
+        <!-- Log and return unsupported action if no match -->
+        <log message="Unsupported action: ${body.Data.Action}" />
+        <setBody>
+            <simple>Unsupported action</simple>
+        </setBody>
+        <setHeader headerName="CamelHttpResponseCode">
+            <simple>400</simple>
+        </setHeader>
+    </otherwise>
+</choice>
