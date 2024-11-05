@@ -340,3 +340,6 @@ public class JsonMapping{
 	}
 	
 							
+
+
+curl -X POST https://your-server-url.com/endpoint -H "Content-Type: application/json" -d '{"AccountNumber": "12", "OrganizationName": "AB", "ActualTransactionDateTime": "2024-11-05T12:34:56.789Z", "AutheticationMethod": "AX", "BeneficiaryAccountNumber": "34", "BeneficiaryBankCountryCode": "US", "BeneficiaryBankName": "BC", "BeneficiaryCountry": "IN", "BeneficiaryID": "56", "BeneficiaryName": "CD", "BeneficiaryType": "EF", "ChannelDailyLimit": "78", "CasaBalance": "90", "CarrierCountry": "ZA", "DeviceIdValue": "01", "DeviceName": "XY", "Platform": "MP", "IsStaff": "NO", "ClientIPAddress": "192.168.01", "AmountInTransactionCurrency": "23", "AmountInAED": "45", "TransactionCurrencyCode": "USD", "TransactionDescription": "TX", "Action": "AB", "CustomerID": "CS", "tranDate": "2024-11-05", "tranTime": "12:34:56.789"}'
