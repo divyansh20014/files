@@ -20,3 +20,35 @@
         </setHeader>
     </otherwise>
 </choice>
+
+
+public static void send(LengthCodec lc, Transaction txn) throws Exception {
+    // Step 1: Get the complete message as bytes before sending
+    byte[] txnBytes = txn.encode();  // Assuming txn.encode() returns the full byte array of the transaction
+    
+    // Step 2: Print the complete transaction byte array in hexadecimal format for readability
+    System.out.println("Final transaction data being sent (Hex format): " + bytesToHex(txnBytes));
+    
+    // Step 3: Write the length of the transaction (length prefix)
+    lc.writeLength(outputStream, txn.getLength());
+
+    // Step 4: Write each segment of the transaction to the output stream
+    for (SegmentType type : SegmentType.values()) {
+        byte[] bytes = txn.getSegment(type);
+        if (bytes != null) {
+            outputStream.write(bytes, 0, bytes.length);  // Write the segment to the output stream
+        }
+    }
+
+    // Step 5: Flush the output stream to send the data
+    outputStream.flush();
+}
+
+// Utility function to convert byte array to hex format
+public static String bytesToHex(byte[] bytes) {
+    StringBuilder hexString = new StringBuilder();
+    for (byte b : bytes) {
+        hexString.append(String.format("%02X ", b));  // Format each byte as a 2-character hex string
+    }
+    return hexString.toString();
+}
