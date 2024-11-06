@@ -21,6 +21,45 @@
     </otherwise>
 </choice>
 
+<!-- for Non Financial-->
+<choice>
+    <when>
+        <!-- Check if the Action is a Customer Details Update action code -->
+        <simple>${body.Data.Action} in ['AFP', 'EIC', 'CDP']</simple>
+        <bean ref="customerDetailsUpdate" method="jsonMapping"/>
+    </when>
+    <when>
+        <!-- Check if the Action is a Password Management action code -->
+        <simple>${body.Data.Action} in ['CP', 'FPI', 'FP']</simple>
+        <bean ref="passwordManagement" method="jsonMapping"/>
+    </when>
+    <when>
+        <!-- Check if the Action is a Beneficiary Management action code -->
+        <simple>${body.Data.Action} in ['BC', 'BM']</simple>
+        <bean ref="beneficiaryManagement" method="jsonMapping"/>
+    </when>
+    <when>
+        <!-- Check if the Action is a Registration action code -->
+        <simple>${body.Data.Action} in ['MDR', 'REGC', 'REGI']</simple>
+        <bean ref="registration" method="jsonMapping"/>
+    </when>
+    <when>
+        <!-- Check if the Action is for Authentication -->
+        <simple>${body.Data.Action} == 'IBLGN'</simple>
+        <bean ref="authentication" method="jsonMapping"/>
+    </when>
+    <otherwise>
+        <!-- Log and return unsupported action if no match -->
+        <log message="Unsupported action: ${body.Data.Action}" />
+        <setBody>
+            <simple>Unsupported action</simple>
+        </setBody>
+        <setHeader headerName="CamelHttpResponseCode">
+            <simple>400</simple>
+        </setHeader>
+    </otherwise>
+</choice>
+
 
 public static void send(LengthCodec lc, Transaction txn) throws Exception {
     // Step 1: Get the complete message as bytes before sending
