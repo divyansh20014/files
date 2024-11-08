@@ -6,7 +6,8 @@
     </when>
     <when>
         <!-- Check if the Action is a Bill Payment action code -->
-        <simple>${body.Data.Action} in ['BPAAADC', 'BPAADDC', 'BPADEWA', 'BPADU', 'BPAEMP', 'BPAETI', 'BPAFEWA', 'BPAFD', 'BPAIBP', 'BPANOL', 'BPASAL', 'BPASF', 'BPASEWA', 'BSAADC', 'BSADDC', 'BSDEWA', 'BSDU', 'BSEMP', 'BSETI', 'BSFEWA', 'BSFD', 'BSIBP', 'BSNOL', 'BSSAL', 'BSSF', 'BSSEWA', 'BPRAADC', 'BPRADDC', 'BPRDEWA', 'BPRDU', 'BPREMP', 'BPRETI', 'BPRFEWA', 'BPRFD', 'BPRIBL', 'BPRNOL', 'BPRSAL', 'BPRSF', 'BPRSEWA']</simple>
+        <simple>${body.Data.Action} in BPAAADC, BPAADDC, BPADEWA, BPADU, BPAEMP, BPAETI, BPAFEWA, BPAFD, BPAIBP, BPANOL, BPASAL, BPASF, BPASEWA, BSAADC, BSADDC, BSDEWA, BSDU, BSEMP, BSETI, BSFEWA, BSFD, BSIBP, BSNOL, BSSAL, BSSF, BSSEWA, BPRAADC, BPRADDC, BPRDEWA, BPRDU, BPREMP, BPRETI, BPRFEWA, BPRFD, BPRIBL, BPRNOL, BPRSAL, BPRSF, BPRSEWA
+</simple>
         <to ref="billPaymentBean" />
     </when>
     <otherwise>
