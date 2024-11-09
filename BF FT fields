@@ -1,4 +1,5 @@
 Bill payment
+String EFMSChannelReferenceNumber = "", Action = "", ActualTransactionDateTime = "", CustomerID = "", AccountNumber = "", ChannelDailyLimit = "", CasaBalance = "", AmountInAED = "", AmountInTransactionCurrency = "", TransactionCurrencyCode = "", DeviceIdValue = "", CarrierCountry = "", ClientIPAddress = "", BeneficiaryType = "", BeneficiaryCountry = "", BeneficiaryAccountNumber = "", AutheticationMethod = "", CardStatus = "", CardNumber = "", Platform = "", DeviceName = "", MerchantID = "", MerchantName = "", CreditCardLimit = "", TransactionDescription = "", BeneficiaryName = "", BeneficiaryID = "", OrganizationName = "";
 
 EFMSChannelReferenceNumber = jsonObject.optString("EFMSChannelReferenceNumber", "");
 Action = jsonObject.optString("Action", "");
@@ -408,6 +409,7 @@ rur_30byte_string_003.encodeText(txn, EFMSChannelReferenceNumber);
 
 
 BENEFICIARY ADDITION
+String Action = "", ActualTransactionDateTime = "", CustomerID = "", DeviceIdValue = "", CarrierCountry = "", ClientIPAddress = "", BeneficiaryType = "", BeneficiaryName = "", BeneficiaryID = "", BeneficiaryBankCountryCode = "", CardNumber = "", BeneficiaryAccountNumber = "", IsStaff = "", AutheticationMethod = "", Platform = "", DeviceName = "", TransactionDescription = "", Language = "", EFMSChannelReferenceNumber = "";
 
 Action = jsonObject.optString("Action", "");
 ActualTransactionDateTime = jsonObject.optString("ActualTransactionDateTime", "");
@@ -545,6 +547,7 @@ rur_30byte_string_003.encodeText(txn, EFMSChannelReferenceNumber);
 
 
 AUTHENTICATION
+String Action = "", TransactionDescription = "", ActualTransactionDateTime = "", CustomerID = "", IsStaff = "", DeviceIdValue = "", CarrierCountry = "", ClientIPAddress = "", AutheticationMethod = "", Platform = "", DeviceName = "", Language = "", EFMSChannelReferenceNumber = "";
 
 Action = jsonObject.optString("Action", "");
 TransactionDescription = jsonObject.optString("TransactionDescription", "");
@@ -680,6 +683,7 @@ rur_30byte_string_003.encodeText(txn, EFMSChannelReferenceNumber);
 
 
 FORGOT PASSWORD
+String Action = "", TransactionDescription = "", ActualTransactionDateTime = "", IsStaff = "", DeviceIdValue = "", CarrierCountry = "", ClientIPAddress = "", AuthenticationMethod = "", Platform = "", DeviceName = "", Language = "", EFMSChannelReferenceNumber = "";
 
 Action = jsonObject.optString("Action", "");
 TransactionDescription = jsonObject.optString("TransactionDescription", "");
