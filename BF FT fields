@@ -820,6 +820,384 @@ rur_30byte_string_003.encodeText(txn, EFMSChannelReferenceNumber);
 
 
 
-Device reg
+Device Reg
+
+private String Action = "", TransactionDescription = "", ActualTransactionDateTime = "", CustomerID = "", DeviceIdValue = "", CarrierCountry = "", ClientIPAddress = "", AuthenticationMethod = "", Platform = "", DeviceName = "", EFMSChannelReferenceNumber = "", ChannelCode = "", tranDate = "", tranTime = "";
+
+
+Action = jsonObject.optString("Action", "");
+TransactionDescription = jsonObject.optString("TransactionDescription", "");
+ActualTransactionDateTime = jsonObject.optString("ActualTransactionDateTime", "");
+CustomerID = jsonObject.optString("CustomerID", "");
+DeviceIdValue = jsonObject.optString("DeviceIdValue", "");
+CarrierCountry = jsonObject.optString("CarrierCountry", "");
+ClientIPAddress = jsonObject.optString("ClientIPAddress", "");
+AuthenticationMethod = jsonObject.optString("AuthenticationMethod", "");
+Platform = jsonObject.optString("Platform", "");
+DeviceName = jsonObject.optString("DeviceName", "");
+EFMSChannelReferenceNumber = jsonObject.optString("EFMSChannelReferenceNumber", "");
+ChannelCode = jsonObject.optString("ChannelCode", "");
+
+
+
+Field smh_tran_type = api.getField("smh_tran_type");
+        Field smh_resp_req = api.getField("smh_resp_req");
+        Field smh_acct_type = api.getField("smh_acct_type");
+        Field smh_activity_type = api.getField("smh_activity_type");
+		Field smh_activity_detail1 = api.getField("smh_activity_detail1");
+		Field smh_activity_detail2 = api.getField("smh_activity_detail2");
+		Field smh_activity_detail3 = api.getField("smh_activity_detail3");
+        Field smh_cust_type = api.getField("smh_cust_type");
+        Field smh_authenticate_mtd = api.getField("smh_authenticate_mtd");
+        Field smh_channel_type = api.getField("smh_channel_type");
+        Field smh_multi_org_name = api.getField("smh_multi_org_name");
+        Field smh_client_tran_type = api.getField("smh_client_tran_type");
+
+
+		
+		smh_tran_type.encodeText(txn,"TRX");
+		smh_activity_detail1.encodeText(txn, "DEE");
+		smh_activity_detail2.encodeText(txn, "DUA");
+		smh_activity_detail3.encodeText(txn, "DNU");
+		smh_cust_type.encodeText(txn, "I");
+		smh_acct_type.encodeText(txn, "CS");
+		smh_authenticate_mtd.encodeText(txn, "NC");
+		smh_channel_type.encodeText(txn, "O");
+		smh_activity_type.encodeText(txn, "BF");
+		smh_resp_req.encodeText(txn, "1");
+		smh_multi_org_name.encodeText(txn,"GLOBAL");
+		smh_client_tran_type.encodeText(txn,"Device reg");
+
+
+
+
+
+
+
+Field rua_20byte_string_005 = api.getField("rua_20byte_string_005");
+rua_20byte_string_005.encodeText(txn, Action);
+
+Field rua_30byte_string_001 = api.getField("rua_30byte_string_001");
+rua_30byte_string_001.encodeText(txn, TransactionDescription);
+
+Field tng_tran_status = api.getField("tng_tran_status");
+tng_tran_status.encodeText(txn, Action);
+
+Field rqo_tran_date = api.getField("rqo_tran_date");
+rqo_tran_date.encodeText(txn, tranDate);
+
+Field rqo_tran_time = api.getField("rqo_tran_time");
+rqo_tran_time.encodeText(txn, tranTime);
+
+Field xqo_cust_num = api.getField("xqo_cust_num");
+xqo_cust_num.encodeText(txn, CustomerID);
+
+Field rur_30byte_string_002 = api.getField("rur_30byte_string_002");
+rur_30byte_string_002.encodeText(txn, CustomerID);
+
+
+Field rua_8byte_string_002 = api.getField("rua_8byte_string_002");
+rua_8byte_string_002.encodeText(txn, "Active");
+
+Field xqo_cust_name = api.getField("xqo_cust_name");
+xqo_cust_name.encodeText(txn, "");  // No mapping for customer_name
+
+Field hqo_device_id = api.getField("hqo_device_id");
+hqo_device_id.encodeText(txn, DeviceIdValue);
+
+Field hob_ip_cntry_code = api.getField("hob_ip_cntry_code");
+hob_ip_cntry_code.encodeText(txn, CarrierCountry);
+
+Field hob_ip_address = api.getField("hob_ip_address");
+hob_ip_address.encodeText(txn, ClientIPAddress);
+
+Field rua_10byte_string_002 = api.getField("rua_10byte_string_002");
+rua_10byte_string_002.encodeText(txn, "");  // No mapping for unique_message_id
+
+Field hqo_device_id_type = api.getField("hqo_device_id_type");
+hqo_device_id_type.encodeText(txn, Platform);
+
+Field hqo_msg_type = api.getField("hqo_msg_type");
+hqo_msg_type.encodeText(txn, DeviceName);
+
+Field rua_10byte_string_007 = api.getField("rua_10byte_string_007");
+rua_10byte_string_007.encodeText(txn, "");  // No mapping for device_sub_type
+
+Field hob_ip_isp = api.getField("hob_ip_isp");
+hob_ip_isp.encodeText(txn, "");  // No mapping, for service_provider
+
+Field rua_2byte_string_001 = api.getField("rua_2byte_string_001");
+rua_2byte_string_001.encodeText(txn, "");  // No mapping for vpn_connected
+
+Field rur_30byte_string_003 = api.getField("rur_30byte_string_003");
+rur_30byte_string_003.encodeText(txn, EFMSChannelReferenceNumber);
+
+Field rua_4byte_string_001 = api.getField("rua_4byte_string_001");
+rua_4byte_string_001.encodeText(txn, ChannelCode);
+
+
+
+
+
+
+CARD MANAGEMENT
+
+Private String Action = "", TransactionDescription = "", ActualTransactionDateTime = "", CustomerID = "", DeviceIdValue = "", CarrierCountry = "", ClientIPAddress = "", AutheticationMethod = "", Platform = "", DeviceName = "", CardStatus = "", Language = "", EFMSChannelReferenceNumber = "", ChannelCode = "", tranDate = "", tranTime = "";
+Action = jsonObject.optString("Action", "");
+TransactionDescription = jsonObject.optString("TransactionDescription", "");
+ActualTransactionDateTime = jsonObject.optString("ActualTransactionDateTime", "");
+CustomerID = jsonObject.optString("CustomerID", "");
+DeviceIdValue = jsonObject.optString("DeviceIdValue", "");
+CarrierCountry = jsonObject.optString("CarrierCountry", "");
+ClientIPAddress = jsonObject.optString("ClientIPAddress", "");
+AuthenticationMethod = jsonObject.optString("AuthenticationMethod", "");
+Platform = jsonObject.optString("Platform", "");
+DeviceName = jsonObject.optString("DeviceName", "");
+CardStatus = jsonObject.optString("CardStatus", "");
+Language = jsonObject.optString("Language", "");
+EFMSChannelReferenceNumber = jsonObject.optString("EFMSChannelReferenceNumber", "");
+ChannelCode = jsonObject.optString("ChannelCode", "");
+
+Field smh_tran_type = api.getField("smh_tran_type");
+        Field smh_resp_req = api.getField("smh_resp_req");
+        Field smh_acct_type = api.getField("smh_acct_type");
+        Field smh_activity_type = api.getField("smh_activity_type");
+		Field smh_activity_detail1 = api.getField("smh_activity_detail1");
+		Field smh_activity_detail2 = api.getField("smh_activity_detail2");
+		Field smh_activity_detail3 = api.getField("smh_activity_detail3");
+        Field smh_cust_type = api.getField("smh_cust_type");
+        Field smh_authenticate_mtd = api.getField("smh_authenticate_mtd");
+        Field smh_channel_type = api.getField("smh_channel_type");
+        Field smh_multi_org_name = api.getField("smh_multi_org_name");
+        Field smh_client_tran_type = api.getField("smh_client_tran_type");
+
+
+		
+		smh_tran_type.encodeText(txn,"TRX");
+		smh_activity_detail1.encodeText(txn, "DEE");
+		smh_activity_detail2.encodeText(txn, "DUA");
+		smh_activity_detail3.encodeText(txn, "DNU");
+		smh_cust_type.encodeText(txn, "I");
+		smh_acct_type.encodeText(txn, "CS");
+		smh_authenticate_mtd.encodeText(txn, "NC");
+		smh_channel_type.encodeText(txn, "O");
+		smh_activity_type.encodeText(txn, "BF");
+		smh_resp_req.encodeText(txn, "1");
+		smh_multi_org_name.encodeText(txn,"GLOBAL");
+		smh_client_tran_type.encodeText(txn,"card management");
+
+Field rua_20byte_string_005 = api.getField("rua_20byte_string_005");
+rua_20byte_string_005.encodeText(txn, Action);
+
+Field rua_30byte_string_001 = api.getField("rua_30byte_string_001");
+rua_30byte_string_001.encodeText(txn, TransactionDescription);
+
+Field tng_tran_type = api.getField("tng_tran_type");
+tng_tran_type.encodeText(txn, "");  // No mapping, so empty string
+
+Field rqo_tran_date = api.getField("rqo_tran_date");
+rqo_tran_date.encodeText(txn, tranDate);
+
+Field rqo_tran_time = api.getField("rqo_tran_time");
+rqo_tran_time.encodeText(txn, tranTime);
+
+Field xqo_cust_num = api.getField("xqo_cust_num");
+xqo_cust_num.encodeText(txn, CustomerID);
+
+
+Field rua_8byte_string_002 = api.getField("rua_8byte_string_002");
+rua_8byte_string_002.encodeText(txn, "Active");
+
+Field hqo_device_id = api.getField("hqo_device_id");
+hqo_device_id.encodeText(txn, DeviceIdValue);
+
+Field hob_ip_cntry_code = api.getField("hob_ip_cntry_code");
+hob_ip_cntry_code.encodeText(txn, CarrierCountry);
+
+Field hob_ip_address = api.getField("hob_ip_address");
+hob_ip_address.encodeText(txn, ClientIPAddress);
+
+Field rua_10byte_string_002 = api.getField("rua_10byte_string_002");
+rua_10byte_string_002.encodeText(txn, "");  // No mapping unique_message_id
+
+Field hqo_device_id_type = api.getField("hqo_device_id_type");
+hqo_device_id_type.encodeText(txn, Platform);
+
+Field hqo_msg_type = api.getField("hqo_msg_type");
+hqo_msg_type.encodeText(txn, DeviceName);
+
+Field rua_10byte_string_007 = api.getField("rua_10byte_string_007");
+rua_10byte_string_007.encodeText(txn, "");  // No mapping for device_sub_type
+
+Field hob_ip_isp = api.getField("hob_ip_isp");
+hob_ip_isp.encodeText(txn, "");  // No mapping for service_provider
+
+Field rua_8byte_string_003 = api.getField("rua_8byte_string_003");
+rua_8byte_string_003.encodeText(txn, CardStatus);
+
+Field xqo_language = api.getField("xqo_language");
+xqo_language.encodeText(txn, Language);
+
+Field rua_2byte_string_001 = api.getField("rua_2byte_string_001");
+rua_2byte_string_001.encodeText(txn, "");  // No mapping, so empty string
+
+Field rur_30byte_string_003 = api.getField("rur_30byte_string_003");
+rur_30byte_string_003.encodeText(txn, EFMSChannelReferenceNumber);
+
+Field rua_4byte_string_001 = api.getField("rua_4byte_string_001");
+rua_4byte_string_001.encodeText(txn, ChannelCode);
+
+
+
+
+
+
+
+
+CUSTOMER UPDATE
+
+
+Private String Action = "", TransactionDescription = "", ActualTransactionDateTime = "", CustomerID = "", NewMobileNumber = "", NewEmailID = "", IsStaff = "", DeviceIdValue = "", CarrierCountry = "", ClientIPAddress = "", AutheticationMethod = "", Platform = "", DeviceName = "", Language = "", ChannelCode = "", tranDate = "", tranTime = "";
+Action = jsonObject.optString("Action", "");
+TransactionDescription = jsonObject.optString("TransactionDescription", "");
+ActualTransactionDateTime = jsonObject.optString("ActualTransactionDateTime", "");
+CustomerID = jsonObject.optString("CustomerID", "");
+IsStaff = jsonObject.optString("IsStaff", "");
+DeviceIdValue = jsonObject.optString("DeviceIdValue", "");
+CarrierCountry = jsonObject.optString("CarrierCountry", "");
+ClientIPAddress = jsonObject.optString("ClientIPAddress", "");
+AuthenticationMethod = jsonObject.optString("AuthenticationMethod", "");
+Platform = jsonObject.optString("Platform", "");
+DeviceName = jsonObject.optString("DeviceName", "");
+Language = jsonObject.optString("Language", "");
+NewMobileNumber=jsonObject.potString(“NewMobileNumber”,””)
+NewEmailID=jsonObject.potString(“NewEmailID”,””)
+ChannelCode = jsonObject.optString("ChannelCode", "");
+
+Field smh_tran_type = api.getField("smh_tran_type");
+        Field smh_resp_req = api.getField("smh_resp_req");
+        Field smh_acct_type = api.getField("smh_acct_type");
+        Field smh_activity_type = api.getField("smh_activity_type");
+		Field smh_activity_detail1 = api.getField("smh_activity_detail1");
+		Field smh_activity_detail2 = api.getField("smh_activity_detail2");
+		Field smh_activity_detail3 = api.getField("smh_activity_detail3");
+        Field smh_cust_type = api.getField("smh_cust_type");
+       Field smh_authenticate_mtd = api.getField("smh_authenticate_mtd");
+        Field smh_channel_type = api.getField("smh_channel_type");
+        Field smh_multi_org_name = api.getField("smh_multi_org_name");
+        Field smh_client_tran_type = api.getField("smh_client_tran_type");
+
+
+		
+		smh_tran_type.encodeText(txn,"TRX");
+		smh_activity_detail1.encodeText(txn, "DEE");
+		smh_activity_detail2.encodeText(txn, "DUA");
+		smh_activity_detail3.encodeText(txn, "DNU");
+		smh_cust_type.encodeText(txn, "I");
+		smh_acct_type.encodeText(txn, "CS");
+		smh_authenticate_mtd.encodeText(txn, "NC");
+		smh_channel_type.encodeText(txn, "O");
+		smh_activity_type.encodeText(txn, "BF");
+		smh_resp_req.encodeText(txn, "1");
+		smh_multi_org_name.encodeText(txn,"GLOBAL");
+		smh_client_tran_type.encodeText(txn,"Customer update");
+
+
+
+Field rua_20byte_string_005 = api.getField("rua_20byte_string_005");
+rua_20byte_string_005.encodeText(txn, Action);
+
+Field hob_website_name = api.getField("hob_website_name");
+hob_website_name.encodeText(txn, TransactionDescription);
+
+Field tng_tran_status = api.getField("tng_tran_status");
+tng_tran_status.encodeText(txn, "");  // No mapping for event_status
+
+Field rqo_tran_date = api.getField("rqo_tran_date");
+rqo_tran_date.encodeText(txn, tranDate);
+
+Field rqo_tran_time = api.getField("rqo_tran_time");
+rqo_tran_time.encodeText(txn, tranTime);
+
+Field xqo_cust_num = api.getField("xqo_cust_num");
+xqo_cust_num.encodeText(txn, CustomerID);
+
+Field rur_30byte_string_002 = api.getField("rur_30byte_string_002");
+rur_30byte_string_002.encodeText(txn, CustomerID);
+
+
+Field rua_8byte_string_002 = api.getField("rua_8byte_string_002");
+rua_8byte_string_002.encodeText(txn, "Active");
+
+Field xqo_cust_name = api.getField("xqo_cust_name");
+xqo_cust_name.encodeText(txn, "");  // No mapping, so empty string
+
+Field xqo_cust_birth_dt = api.getField("xqo_cust_birth_dt");
+xqo_cust_birth_dt.encodeText(txn, "");  // No mapping, so empty string
+
+Field xqo_phone = api.getField("xqo_phone");
+xqo_phone.encodeText(txn, NewMobileNumber);  // No mapping, so empty string
+
+Field dee_entity_id_5 = api.getField("dee_entity_id_5");
+dee_entity_id_5.encodeText(txn, "");  // No mapping, so empty string
+
+Field dee_entity_id_6 = api.getField("dee_entity_id_6");
+dee_entity_id_6.encodeText(txn, NewEmailID);  // No mapping, so empty string
+
+Field xqo_cust_post_code = api.getField("xqo_cust_post_code");
+xqo_cust_post_code.encodeText(txn, "");  // No mapping, so empty string
+
+Field xqo_cust_cntry_code = api.getField("xqo_cust_cntry_code");
+xqo_cust_cntry_code.encodeText(txn, "");  // No mapping, so empty string
+
+Field xqo_cust_city = api.getField("xqo_cust_city");
+xqo_cust_city.encodeText(txn, "");  // No mapping, so empty string
+
+Field unm_cust_doc_num = api.getField("unm_cust_doc_num");
+unm_cust_doc_num.encodeText(txn, "");  // No mapping, so empty string
+
+Field dee_entity_id_2 = api.getField("dee_entity_id_2");
+dee_entity_id_2.encodeText(txn, "");  // No mapping, so empty string
+
+Field xqo_limit_amt = api.getField("xqo_limit_amt");
+xqo_limit_amt.encodeText(txn, "");  // No mapping, so empty string
+
+Field xqo_emp_flg = api.getField("xqo_emp_flg");
+xqo_emp_flg.encodeText(txn, IsStaff);
+
+Field hqo_device_id = api.getField("hqo_device_id");
+hqo_device_id.encodeText(txn, DeviceIdValue);
+
+Field hob_ip_cntry_code = api.getField("hob_ip_cntry_code");
+hob_ip_cntry_code.encodeText(txn, CarrierCountry);
+
+Field hob_ip_address = api.getField("hob_ip_address");
+hob_ip_address.encodeText(txn, ClientIPAddress);
+
+
+Field rua_10byte_string_002 = api.getField("rua_10byte_string_002");
+rua_10byte_string_002.encodeText(txn, "");  // No mapping, so empty string
+
+Field hqo_device_id_type = api.getField("hqo_device_id_type");
+hqo_device_id_type.encodeText(txn, Platform);
+
+Field hqo_msg_type = api.getField("hqo_msg_type");
+hqo_msg_type.encodeText(txn, DeviceName);
+
+Field rua_10byte_string_007 = api.getField("rua_10byte_string_007");
+rua_10byte_string_007.encodeText(txn, "");  // No mapping, so empty string
+
+Field hob_ip_isp = api.getField("hob_ip_isp");
+hob_ip_isp.encodeText(txn, "");  // No mapping, so empty string
+
+Field xqo_language = api.getField("xqo_language");
+xqo_language.encodeText(txn, Language);
+
+Field rua_2byte_string_001 = api.getField("rua_2byte_string_001");
+rua_2byte_string_001.encodeText(txn, "");  // No mapping, so empty string
+
+Field rua_4byte_string_001 = api.getField("rua_4byte_string_001");
+rua_4byte_string_001.encodeText(t
+
 
 
