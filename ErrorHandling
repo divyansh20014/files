@@ -1,0 +1,95 @@
+<route id="evaluate-risk-financial">
+    <!-- Incoming request to evaluate the financial risk -->
+    <from uri="jetty:http://0.0.0.0:8000/evaluateRiskFinancial"/>
+
+    <!-- Set Content-Type to Application/TSON -->
+    <setHeader name="Content-Type">
+        <constant>Application/TSON</constant>
+    </setHeader>
+
+    <!-- Authorization check -->
+    <choice>
+        <when>
+            <!-- Check if Authorization header matches the expected value -->
+            <simple>${header.Authorization} == 'Basic YWRiYXBpY2xyZW500ms1VHoWWHEzTGRSHv=='</simple>
+            <log message="Authorized access" loggingLevel="INFO"/>
+
+            <!-- Process action with fetchAction bean -->
+            <bean ref="fetchAction" method="processAction"/>
+            
+            <!-- After fetchAction bean, validate required fields (CustomerID, Action, EFMSChannelReferenceNumber) -->
+            <choice>
+                <when>
+                    <!-- Check if CustomerID, Action, and EFMSChannelReferenceNumber are present in the body -->
+                    <simple>${body[Data][CustomerID]} != null && ${body[Data][Action]} != null && ${body[Data][EFMSChannelReferenceNumber]} != null</simple>
+                    <log message="Valid request received: ${body}" loggingLevel="INFO"/>
+
+                    <!-- Proceed with the transaction processing based on the Action field -->
+                    <choice>
+                        <!-- Check if it's a Fund Transfer action -->
+                        <when>
+                            <simple>${header.Action} in 'ASM, ASBAYQC, ATAFT, AMEX, IOL, ITHU, ITHA, OBCCP, FTAB, FTAA'</simple>
+                            <log message="Fund Transfer type Transaction Received" loggingLevel="INFO"/>
+                            <bean ref="fundTransfer" method="jsonMapping"/>
+                            <to uri="direct:LoadBalancerRoute"/>
+                        </when>
+
+                        <!-- Check if it's a Bill Payment action -->
+                        <when>
+                            <simple>${header.Action} in 'BPAAADC, BPAADDC, BPADEWA, BPADU, BPAMP, BPAETI, BPAFEHA, BPAFD, BPAIBP, BPANOL, BPASAL, BPASF, BPASEWA, BSAADC, BADDC, BSDEHA, BSDU, BSEMP, BSETI, BSFEWA, BSFD, BSIBP, BSHOL, BSSAL, BSSF, BSSENA, BPRAADC, BPRADDC, BPRDEWA, BPRDU, BPREMP, BPRETI, BPREEHA, BPRED, BPRIBL, BPRHOL, BPRSAL, BPRSF, BPRSEHA'</simple>
+                            <log message="Bill Payment type Transaction Received" loggingLevel="INFO"/>
+                            <bean ref="billPayment" method="jsonMapping"/>
+                            <to uri="direct:LoadBalancerRoute"/>
+                        </when>
+
+                        <!-- Default for unknown Action types -->
+                        <otherwise>
+                            <log message="Unknown action type: ${header.Action}" loggingLevel="ERROR"/>
+                            <setHeader name="CamelHttpResponseCode">
+                                <constant>400</constant>
+                            </setHeader>
+                            <setBody>
+                                <constant>{"error": "Malformed request (invalid action type)."}</constant>
+                            </setBody>
+                        </otherwise>
+                    </choice>
+                </when>
+
+                <!-- If any required fields are missing, return 400 Bad Request with error message -->
+                <otherwise>
+                    <log message="Missing required fields in the request: ${body}" loggingLevel="ERROR"/>
+
+                    <!-- Set 400 Bad Request response code -->
+                    <setHeader name="CamelHttpResponseCode">
+                        <constant>400</constant>
+                    </setHeader>
+
+                    <!-- Set body with error message indicating which fields are missing -->
+                    <setBody>
+                        <simple>
+                            {
+                                "error": "Malformed request (missing parameters, invalid data). Missing fields: " +
+                                (if (${body[Data][CustomerID]} == null) "CustomerID, " : "") +
+                                (if (${body[Data][Action]} == null) "Action, " : "") +
+                                (if (${body[Data][EFMSChannelReferenceNumber]} == null) "EFMSChannelReferenceNumber" : "") +
+                                "."
+                            }
+                        </simple>
+                    </setBody>
+                </otherwise>
+            </choice>
+
+        </when>
+
+        <!-- Unauthorized access handling -->
+        <otherwise>
+            <log message="Unauthorized access attempt" loggingLevel="ERROR"/>
+            <setHeader name="CamelHttpResponseCode">
+                <constant>401</constant>
+            </setHeader>
+            <setBody>
+                <constant>{"error": "Unauthorized access"}</constant>
+            </setBody>
+        </otherwise>
+    </choice>
+</route>
