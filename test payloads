@@ -1,0 +1,53 @@
+{
+    "Data": {
+        "EFMSChannelReferenceNumber": "EF12",
+        "Action": "IOL",
+        "TransactionCode": "T1",
+        "TransferType": "IN",
+        "ActionDateTime": "2024-10-16T15:57:36.650Z",
+        "CustomerId": "C1",
+        "PaymentType": "WT",
+        "TouchpointBalance": 5000,
+        "AccountId": "A9",
+        "ChannelDailyLimit": {
+            "Amount": "10000",
+            "Currency": "AE"
+        },
+        "Balance": {
+            "Amount": "1000",
+            "Currency": "AE"
+        },
+        "TransactionAmountInLocalCurrency": {
+            "Amount": "367",
+            "Currency": "AE"
+        },
+        "TransactionAmountInTransactionCurrency": {
+            "Amount": "2280",
+            "Currency": "IN"
+        },
+        "CountryISO2": "AE",
+        "ClientIPAddress": "19.16.1.1",
+        "BeneficiaryCountry": "IN",
+        "BeneficiaryBankName": "IB",
+        "BeneficiaryAccountId": "B1",
+        "StaffFlag": true,
+        "Platform": "MA",
+        "DeviceName": "IP",
+        "OrgName": "GP",
+        "BeneficiaryName": "JD",
+        "BeneficiaryId": "B9",
+        "ChannelDeviceId": "CD",
+        "RBADeviceIdType": "IM",
+        "RBADeviceId": "35",
+        "CustomerNetWorth": {
+            "Amount": "100000",
+            "Currency": "AE"
+        },
+        "MaskedCardNumber": "41",
+        "MerchantId": "M1",
+        "CreditCardLimit": {
+            "Amount": "5000",
+            "Currency": "AE"
+        }
+    }
+}
