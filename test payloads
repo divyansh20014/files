@@ -51,3 +51,6 @@
         }
     }
 }
+
+
+curl -X POST http://localhost:8080/your-api-endpoint -H "Content-Type: application/json" -d '{"Data":{"EFMSChannelReferenceNumber":"AB","Action":"CD","TransactionCode":"EF","TransferType":"GH","ActionDateTime":"2024-10-16T15:57:36.650Z","CustomerId":"IJ","PaymentType":"KL","TouchpointBalance":0,"AccountId":"MN","ChannelDailyLimit":{"Amount":"100","Currency":"AED"},"Balance":{"Amount":"100","Currency":"AED"},"TransactionAmountInLocalCurrency":{"Amount":"367","Currency":"AED"},"TransactionAmountInTransactionCurrency":{"Amount":"2280","Currency":"INR"},"CountryISO2":"OP","ClientIPAddress":"QR","BeneficiaryCountry":"ST","BeneficiaryBankName":"UV","BeneficiaryAccountId":"WX","StaffFlag":true,"Platform":"YZ","DeviceName":"AB","OrgName":"CD","BeneficiaryName":"EF","BeneficiaryId":"GH","ChannelDeviceId":"IJ","RBADeviceIdType":"KL","RBADeviceId":"MN","CustomerNetWorth":{"Amount":"100","Currency":"AED"},"MaskedCardNumber":"OP","MerchantId":"QR","CreditCardLimit":{"Amount":"100","Currency":"AED"}}}'
