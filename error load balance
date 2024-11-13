@@ -1,0 +1,62 @@
+import org.apache.camel.Exchange;
+import java.util.UUID;
+
+public class ServiceUnavailableErrorHandler {
+
+    // Method to generate the 503 error response
+    public void generateServiceUnavailableResponse(Exchange exchange) {
+        // Generate a unique ID for the error
+        String id = UUID.randomUUID().toString();
+
+        // Construct the error response
+        String errorResponse = "{\n" +
+                "    \"Code\": \"API503\",\n" +
+                "    \"Id\": \"" + id + "\",\n" +
+                "    \"Message\": \"Service Unavailable\",\n" +
+                "    \"Errors\": [\n" +
+                "        {\n" +
+                "            \"ErrorCode\": \"\",\n" +
+                "            \"Message\": \"\",\n" +
+                "            \"Path\": \"\",\n" +
+                "            \"Url\": \"\"\n" +
+                "        }\n" +
+                "    ]\n" +
+                "}";
+
+        // Set the error response in the Exchange body
+        exchange.getIn().setBody(errorResponse);
+    }
+}
+
+
+<route id="loadBalanceRoute">
+    <doTry>
+        <!-- Load balancer to route the request to available endpoints -->
+        <loadBalance id="ODE Load Balancer" inheritErrorHandler="false">
+            <custom ref="odeLoadBalancer"/>
+            <to id="sfmdemo1" uri="netty4:tcp://{{ODE1}}:5018?sync=true&encoder=#encoder&decoder=#decoder"/>
+            <to id="sfmdemo2" uri="netty4:tcp://{{ODE2}}:5018?sync=true&encoder=#encoder&decoder=#decoder"/>
+            <to id="sfmdemo3" uri="netty4:tcp://{{ODE3}}:5018?sync=true&encoder=#encoder&decoder=#decoder"/>
+        </loadBalance>
+        
+        <doCatch>
+            <!-- Catch any connection errors (ConnectException or RuntimeException) -->
+            <exception>java.net.ConnectException</exception>
+            <exception>java.lang.RuntimeException</exception>
+
+            <!-- Set the error message in the property -->
+            <setProperty propertyName="errorContent">
+                <simple>${exception.message}</simple>
+            </setProperty>
+
+            <!-- Call the Bean to generate the 503 response -->
+            <bean ref="serviceUnavailableErrorHandler" method="generateServiceUnavailableResponse"/>
+
+            <!-- Stop the route processing after handling the error -->
+            <stop/>
+
+            <!-- Send the error response to the caller -->
+            <to uri="direct:handleSendError"/>
+        </doCatch>
+    </doTry>
+</route>
