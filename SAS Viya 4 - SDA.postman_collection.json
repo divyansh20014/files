@@ -1,0 +1,3147 @@
+{
+	"info": {
+		"_postman_id": "167d4b47-d61b-44d6-8789-41669ac1af28",
+		"name": "SAS Viya 4 - SDA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29042441"
+	},
+	"item": [
+		{
+			"name": "Fraud Decisioning",
+			"item": [
+				{
+					"name": "Environment",
+					"item": [
+						{
+							"name": "List Detection Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detection/settings",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detection",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Detection Health",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detection/health",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detection",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Restart Pod",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "https://fraud.fsi-dev-03.fsipresalesazure.unx.sas.com/detection/restart",
+									"protocol": "https",
+									"host": [
+										"fraud",
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detection",
+										"restart"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Organisations & Org Units",
+					"item": [
+						{
+							"name": "List Organisations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/organizations/",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Organisation Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/49120311-d972-4667-a3b8-83ca1ecec245",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"49120311-d972-4667-a3b8-83ca1ecec245"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Organisations",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "If-Match",
+										"value": "W/\"1677608137789718000\"",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"displayName\": \"Fraud\",\r\n\"name\": \"Fraud\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/49120311-d972-4667-a3b8-83ca1ecec245",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"49120311-d972-4667-a3b8-83ca1ecec245"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Organisations",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"displayName\": \"Payments Fraud\",\r\n  \"name\": \"payments_fraud\",\r\n  \"description\": \"Payments Fraud Organization\",\r\n  \"messageClassificationId\": \"0185e2eb-d71f-4fb6-8faa-0f11bcae54e4\",\r\n  \"roleRelations\": [\r\n    {\r\n      \"roleId\": \"SDASystemAdmin\"\r\n    },\r\n    {\r\n      \"roleId\": \"SDASrRulesEditor\"\r\n    },\r\n    {\r\n      \"roleId\": \"SDARulesEditor\"\r\n    },\r\n    {\r\n      \"roleId\": \"SDAJrRulesEditor\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/organizations",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Organisation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/46e4ba9b-b6f3-4872-8ef2-c69900ebf4db",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"46e4ba9b-b6f3-4872-8ef2-c69900ebf4db"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Organisations from CSV",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Users/sukpse/OneDrive - SAS/Demo Server/Azure/dev-03/sda-organisations.csv"
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations?level=2",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations"
+									],
+									"query": [
+										{
+											"key": "level",
+											"value": "2"
+										},
+										{
+											"key": "ignoreOrphans",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Associate Message Schema with Organisation",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/f14b4a59-7b3a-468d-96f4-0dca072c5c98/schemaRelationships/New Account",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"f14b4a59-7b3a-468d-96f4-0dca072c5c98",
+										"schemaRelationships",
+										"New Account"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disassociate Message Schema with Organisation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/49120311-d972-4667-a3b8-83ca1ecec245/schemaRelationships/New_Account",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"49120311-d972-4667-a3b8-83ca1ecec245",
+										"schemaRelationships",
+										"New_Account"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Organisation Unit",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/organizationalUnits",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizationalUnits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Organisation Unit",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizationalUnits/a0816260-aae7-472b-87d4-eb4596e2b012",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizationalUnits",
+										"a0816260-aae7-472b-87d4-eb4596e2b012"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Organisation Unit",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "If-Match",
+										"value": "W/\"1677609086821211000\"",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"name\": \"Fraud\",\r\n\"displayName\": \"Fraud\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizationalUnits/a0816260-aae7-472b-87d4-eb4596e2b012",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizationalUnits",
+										"a0816260-aae7-472b-87d4-eb4596e2b012"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Organisation Unit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"payments_fraud\",\r\n  \"displayName\": \"Payments Fraud\",\r\n  \"keyCode\": \"AA\",\r\n  \"parentId\": \"3c6537dc-1e7f-4d03-98aa-fa781ed23e59\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/organizationalUnits",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizationalUnits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Organisation Unit",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizationalUnits/a0816260-aae7-472b-87d4-eb4596e2b012",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizationalUnits",
+										"a0816260-aae7-472b-87d4-eb4596e2b012"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Alert Types",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/alertTypes",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"alertTypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Alert Types",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"code\": \"APLCT\",\r\n  \"name\": \"Application\",\r\n  \"variableRelation\": {\r\n    \"messageName\": \"Common Application\",\r\n    \"pathName\": \"*.aplct_id\",\r\n    \"name\": \"aplct_id\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/alertTypes",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"alertTypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Organisation Unit from Project",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "If-Match",
+										"value": "28 Oct 2023 10:23:00 GMT",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n    \"op\": \"remove\",\r\n    \"path\": \"orgUnitRelations\",\r\n    \"value\": \"cfcd8364-d6c0-4285-b889-5cc43bca4bb5\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/cfcd8364-d6c0-4285-b889-5cc43bca4bb5/projects/0e3b83d3-4d84-4ed1-89d5-81a804a73b89",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"cfcd8364-d6c0-4285-b889-5cc43bca4bb5",
+										"projects",
+										"0e3b83d3-4d84-4ed1-89d5-81a804a73b89"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Message Classifications",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/messageClassifications",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"messageClassifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Message Classification",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\r\n            \"name\": \"PAYMENTS\",\r\n            \"displayName\": \"Payments Message Classifcation\",\r\n            \"keyCode\": \"AB\",\r\n            \"parentId\": \"ced5ac46-825b-46eb-9cc5-734a8bb58654\"\r\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/messageClassifications",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"messageClassifications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Roles & Users",
+					"item": [
+						{
+							"name": "List Organisation Roles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Organisation Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/users",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Organisation Capabilities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/capabilities",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"capabilities"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Deployments",
+					"item": [
+						{
+							"name": "Create Credential Domain",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"id\": \"SDADockerRegistry\",\r\n\t\"description\": \"SDA Docker Publishing Destination\",\r\n\t\"type\": \"base64\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/credentials/domains/SDADockerRegistry",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"credentials",
+										"domains",
+										"SDADockerRegistry"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Credential (ACR)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"domainId\": \"SDADockerRegistry\",\r\n\"identityType\": \"client\",\r\n\"identityId\": \"sas.detectionDefinition\",\r\n\"domainType\": \"base64\",\r\n\"properties\": {\r\n        \"clientId\": \"OWNhOTM5OTctZDVmMC00NDBkLWI4YTctZGMzNzRlZDRiMjNj\"\r\n    },\r\n    \"secrets\": {\r\n        \"clientSecret\": \"aG1BOFF+SmhKeXFlTDZuaGJNdjBjdVUzLm5BZ2tKVUpsOGJBQmNQdA==\",\r\n        \"kubeCertData\": \"LS0tLS1CR…………\",\r\n        \"kubeKeyData\": \"LS0tLS1…………\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/credentials/domains/SDADockerRegistry/clients/sas.detectionDefinition",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"credentials",
+										"domains",
+										"SDADockerRegistry",
+										"clients",
+										"sas.detectionDefinition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Credential (Private Docker)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"domainId\"     : \"SDADockerRegistry\",\r\n    \"identityId\"   : \"sas.detectionDefinition\",\r\n    \"identityType\" : \"client\",\r\n    \"domainType\"   : \"base64\",\r\n    \"properties\": {\r\n        \"dockerRegistryUserId\" : \"c2Fz\"\r\n    },\r\n    \"secrets\": {\r\n        \"dockerRegistryPasswd\" : \"T3Jpb24xMjM=\",\r\n        \"kubeCertData\" : \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJrVENDQVRlZ0F3SUJBZ0lJR2RLZEdoRmtPT1F3Q2dZSUtvWkl6ajBFQXdJd0l6RWhNQjhHQTFVRUF3d1kKYXpOekxXTnNhV1Z1ZEMxallVQXhOall5TURNME9ETXpNQjRYRFRJeU1Ea3dNVEV5TWpBek0xb1hEVEkwTURZeQpNREl3TURBeE5sb3dNREVYTUJVR0ExVUVDaE1PYzNsemRHVnRPbTFoYzNSbGNuTXhGVEFUQmdOVkJBTVRESE41CmMzUmxiVHBoWkcxcGJqQlpNQk1HQnlxR1NNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJFU0ZHcVh3TUJYQzZMSVMKMVVqcHFOelZlSUFYZkJta0t4WVNYdmVYNk9lOU1DS0JoeDI3U0l3dmgxcjY5dFd4SkJrU05COFVpbm1PeHN4WAp3K04vVlIyalNEQkdNQTRHQTFVZER3RUIvd1FFQXdJRm9EQVRCZ05WSFNVRUREQUtCZ2dyQmdFRkJRY0RBakFmCkJnTlZIU01FR0RBV2dCUUtEZmZRakk0SmRWc0FzcjFkOTQySEo1K0RlREFLQmdncWhrak9QUVFEQWdOSUFEQkYKQWlCanNPNkFzU2FlRXJMc1R2WEIzNlZYYkphK2hsM3M1bmt2ZXVGaFQvb3lxd0loQU9MRTRBVDFWanQ1eHNHWgpocTZwanRJVzFYZDFpRnpLOEc1Ym1JTmZlVnUvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0KLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJlRENDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdFkyeHAKWlc1MExXTmhRREUyTmpJd016UTRNek13SGhjTk1qSXdPVEF4TVRJeU1ETXpXaGNOTXpJd09ESTVNVEl5TURNegpXakFqTVNFd0h3WURWUVFEREJock0zTXRZMnhwWlc1MExXTmhRREUyTmpJd016UTRNek13V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFRbGd2SGY4bDRpeTcrUUNhM0hXbWdETmxSTm1ZeFpUNFlLdXErY09rc3UKcUZMcytJVGRIeFRHemhmZTZSOCsxSjUvOFlmVmx0ZDFRcnN5UGRoTnh5bFlvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVUNnMzMwSXlPQ1hWYkFMSzlYZmVOCmh5ZWZnM2d3Q2dZSUtvWkl6ajBFQXdJRFNRQXdSZ0loQUtFTzJlR01CZTNpbGNIWWVzdUpXSDY0Z1VTSnZaOC8KbXpTOUFUWnNEM3JxQWlFQXBITVVtb2ltenBkajNleDVVbWhkTTNWNjZ4WCtSYkNEdXRzZjlOUUxWRVk9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K\",\r\n        \"kubeKeyData\" : \"LS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUhDeXVLREJHdjNXK0pLR096V3luMkVVc3dYVDc1R2NKd1RVZmN1MVYzUGtvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFUklVYXBmQXdGY0xvc2hMVlNPbW8zTlY0Z0JkOEdhUXJGaEplOTVmbzU3MHdJb0dISGJ0SQpqQytIV3ZyMjFiRWtHUkkwSHhTS2VZN0d6RmZENDM5VkhRPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/credentials/domains/SDADockerRegistry/clients/sas.detectionDefinition",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"credentials",
+										"domains",
+										"SDADockerRegistry",
+										"clients",
+										"sas.detectionDefinition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Credentials Domain",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/credentials/domains",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"credentials",
+										"domains"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Credential",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"domainId\": \"ACR\",\r\n    \"identityId\": \"sas.detectionDefinition\",\r\n    \"identityType\": \"user\",\r\n    \"domainType\": \"base64\",\r\n    \"properties\": {\r\n        \"dockerRegistryUserID\": \"ZnNpcHJlc2FsZXNkZXYwM2Fjcg==\"\r\n    },\r\n    \"secrets\": {\r\n        \"dockerRegistryPassword\": \"Vi8vOUZKM3FuRzVpeS9mRzFXRzZ2a000a3ZUcXZudGZOeE85anYxUld5K0FDUkNzZlExWg==\",\r\n        \"kubeCertData\": \"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZIakNDQXdhZ0F3SUJBZ0lSQU15Vk55VlpadlBQMC9FMUN5UnZLQWt3RFFZSktvWklodmNOQVFFTEJRQXcKRFRFTE1Ba0dBMVVFQXhNQ1kyRXdIaGNOTWpNd01qQXpNVEF6TnpReVdoY05NalV3TWpBek1UQTBOelF5V2pBdwpNUmN3RlFZRFZRUUtFdzV6ZVhOMFpXMDZiV0Z6ZEdWeWN6RVZNQk1HQTFVRUF4TU1iV0Z6ZEdWeVkyeHBaVzUwCk1JSUNJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBMjY2bzZLUnpIdEN3OHBhb2ZVcDAKS0p4dnVGdnkxdG1aaFFnQkdrM2IrbVFESGdrVThqZkxzU0tXM0t4OUM1ZEVYbHR0ckszWWhlSWt6Mitwek1vSwphN1pMZFVjV1Vna0hQS3ZOSktxclVka0FrNlh1QzYyaXViZWdqeElQbEtWNlpVZ1dTNXFDOGNjanlkcGtQdzNTCjdLTUUvenExRTd5LzkyVDZwRnQ4cTkyblR6bEsxUVRVZkcvOG5BZDQyR1VVSUVoTHZMODFzQy96VUVubEExdWUKcU1DbnV5UDNMZGRPZ3ZnMU9WRXNXOEVIQWdQNjMrNDBFTm9qOFZnaC9Ya1JmM2I1OUMrRUM1TUQ1eHFidmQ2NgpHdC9CUzdiU0FSSStKOExxdTYwcUpoUGwzNTZLb0lPNGE3d3czblc5dXFrMWk3Y1dMNFk5VDNEdXo5YW9RL0c1CmhwWTFrTVRrTkpOVDJyUEIwT09VV2NoZmxZTi9JdG9tRytoaWFBQnRobjc5SkJhV2dKTFFOWE8veFVRbWpPbW8KTG9pNmdJTjZnNkJIdUJtOGwvVndMM0xRNk5qWEowaUVaamluWGEyeEtGcSsxaUdzOVNwMG1oay90NjRtUG45OApZbzZPM3BTbXU1c2tCTWVuM2NFeFpDTUNxdUUvYmliK1JzODAzUFQvR2FYc3l3YXRhRFFCVVh0WFl0V3BIeU94Ck5WZ3kzVHQ2UXcyVDM5eGhjSmsxYTFQWHNEQS83YldZbnNGclhzdnpjcnZjRVkwakl0OWUrN2NmZ1JLNEo5TDIKeUtlMXNuYXBWNXFWemNSaDRuc2FUcWhodXV6OEc0Z3JpNXBqZFRhTnIyb21qSGFEKzRYSUxLR2hkc2VicVpqMwpKbVJXSkhFaS91QUFDbE5hUk1jQnJRTUNBd0VBQWFOV01GUXdEZ1lEVlIwUEFRSC9CQVFEQWdXZ01CTUdBMVVkCkpRUU1NQW9HQ0NzR0FRVUZCd01DTUF3R0ExVWRFd0VCL3dRQ01BQXdId1lEVlIwakJCZ3dGb0FVaUlXWDRoaTkKVUkyS016cGNpSERzWkt0NG0zRXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUJBRVIzZXZoNmQwZFBWL055OXRMKwp4cnBjeWZVaW9jcStHbktqK2tWZjhqNVB1L0Zvak9FQTA4c3lmZVdPeGZPWHk1dlBpR0hlUDhsTFMyRjVIcmcyCnQwSk5aUFczenpWK2xSeXl2bEl3Rm56Z0c3cDhRQi9OWjRzU3JRVkxGNlB0K3ovcEwvRzlTNUVxaGRRY0d4ZDQKWGo4bC9NQXUrV2l6dmZ4YlF1azVXSEwxVk44SW9DRTlCQkJDMjdyUXBvY3B6N21ZRkhMeFBtREdsaERHOWNLaApwTVhNSXZiRGhJTXBnaElhVUVpNzh6Sk5qYzJKcnZmUVlZY0I2K3VObmxyUk9OU0RyU1dsa0VpR0pyNFZYcTZuCmJodk5veHVtMEJYUnFGTXZBMUVGaTlrVkF4UlZLM0E2YlU4ZWNkMFVPWGlIZlhCaUxiY2NIREEzOW1jR0pubVoKYnd3M0JxelFVSXVSenNYM203d2FTUzV0R3VYUVc5cjJoTXR6TXlkNmFuN1dmYVRubGh0Q3d5RUE3RUlmL01PYQo5Sk1JZ011SXlLQXN4M0wyLzVobHErSXhpSWt6NkF6Nkx2UFpSbnRjMmdwUG5XNHdvOVhKbHdiN05nN2V2cDJFCkU4aUgrQWc0ZytwaDdHalFIK0lpcVlLUmpCd3gvNUhxTlliM3dnMk5VUjNNSmRKT0NXdGVwTlgwR3FKblpnWUsKNmZyUHhoUTdRNTVFaERJUktMcFNRSURBNmZJaTRlTlJWUmh2aTFjU3NEZEs4S3h1NUM4eUFFZEF5bVk2MnJhVgpSWVJrbCtLY0dldStUaGEzbmI5SDhXQ092cThVWkpLQjdxeHBZRGYwaFBaazVNejJoRXoxdUJaeDgwamVNME9UCmxQMEcveG5xR2hBYVlKVGxQS0t3MDA2agotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\",\r\n        \"kubeKeyData\": \"LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS1FJQkFBS0NBZ0VBMjY2bzZLUnpIdEN3OHBhb2ZVcDBLSnh2dUZ2eTF0bVpoUWdCR2szYittUURIZ2tVCjhqZkxzU0tXM0t4OUM1ZEVYbHR0ckszWWhlSWt6Mitwek1vS2E3WkxkVWNXVWdrSFBLdk5KS3FyVWRrQWs2WHUKQzYyaXViZWdqeElQbEtWNlpVZ1dTNXFDOGNjanlkcGtQdzNTN0tNRS96cTFFN3kvOTJUNnBGdDhxOTJuVHpsSwoxUVRVZkcvOG5BZDQyR1VVSUVoTHZMODFzQy96VUVubEExdWVxTUNudXlQM0xkZE9ndmcxT1ZFc1c4RUhBZ1A2CjMrNDBFTm9qOFZnaC9Ya1JmM2I1OUMrRUM1TUQ1eHFidmQ2Nkd0L0JTN2JTQVJJK0o4THF1NjBxSmhQbDM1NksKb0lPNGE3d3czblc5dXFrMWk3Y1dMNFk5VDNEdXo5YW9RL0c1aHBZMWtNVGtOSk5UMnJQQjBPT1VXY2hmbFlOLwpJdG9tRytoaWFBQnRobjc5SkJhV2dKTFFOWE8veFVRbWpPbW9Mb2k2Z0lONmc2Qkh1Qm04bC9Wd0wzTFE2TmpYCkowaUVaamluWGEyeEtGcSsxaUdzOVNwMG1oay90NjRtUG45OFlvNk8zcFNtdTVza0JNZW4zY0V4WkNNQ3F1RS8KYmliK1JzODAzUFQvR2FYc3l3YXRhRFFCVVh0WFl0V3BIeU94TlZneTNUdDZRdzJUMzl4aGNKazFhMVBYc0RBLwo3YldZbnNGclhzdnpjcnZjRVkwakl0OWUrN2NmZ1JLNEo5TDJ5S2Uxc25hcFY1cVZ6Y1JoNG5zYVRxaGh1dXo4Ckc0Z3JpNXBqZFRhTnIyb21qSGFEKzRYSUxLR2hkc2VicVpqM0ptUldKSEVpL3VBQUNsTmFSTWNCclFNQ0F3RUEKQVFLQ0FnRUFyNXM2NGwweXVSdFJsMW5mYmVncVdweFNvaWkrUWdqSHM1UG1iY1IzWi95eWtUdnBSb1piaVVtQgpGdjI3SjV6UHhpMkh5bFZkbEFobUxIdXlYRVhWZHF6T1BQMktWaUZwYTVKWjlrbUhrWEhLQ0R6SHdRWVg0aVZyCmIzS2NpZEtOdUpDYllld3RhR0FydDV1Z0x0YzZHSGRuOHk1V3VXUlVmOHAwb1JXUTMwSGNFSFJYNFZodkV0bmkKTUVlNHppSmVxRCtpYTByZCsrMFlyc0dqRThBVllBaEJERk4vcjJGQkhXaVVBekZrS0NSeEdhZGN6OHgyU2xKVwpFUUxHaVB4U2hIWHk4TU5hNW5XcTFQNXNLS2IyVmEwdnN2cDlmT1c4VWNSNkozUVJFVWN1cGtieHdjWUprZlZwCml5ckxjMzcza3F2VVRFRWVtWFpKTUZNRFJ1emZ3NzhEUkFlTUdsM2szQUI3Q0l5Zi94aWZxSXA1Qm9jS0ZRWloKU2pma1cwN1AreDNydW1YK05RRnZCRysyQzI1TGhPRWh0R2tZMWNEOVNldDFSejFKV0xYdTQvcGhqSTdvRjZvegp0aFBTa0YxU2tKNFRGRk8vVEt2dSsxZjhWbHozMzJSOHZQTnFCUG9NR0h0YlFWNHpwaHNvanhDUTdVa0lhMnRPCk9ON1RjWkowY3BMY0lqazhqRjBGaXlxaEoxR1hOaUV4RDc0WWdPMHdXZkorN3U2Q2dYVDlRL0JibXMrVnZNR2YKa3N3QzZFRXBrellrNkhzaVRGdFhyOFMyblp3TGxBZ2FqVDJHL2NZQ3Z1QmRLcGtYSUVZa2pGQmczdUQ5T2p1TgpiNzBMQlZ5ckx0WFN1YVdLK01DU0tBb3JVV3h6MXlWOUUwYThBdi9IbUFDMFNUbnBydUVDZ2dFQkFPeklXM0xOCkpIenZzbTA4d0ZLd1hONFY1VjNhWlNURnlYekVFVkZ6dDhaOXJGZC8xRkxtdnlGNVhkQTYwQVZ1L1pyc2d2UkMKNGRnalVaelNKcS94ZFpXRi9pYTVsa0pnWjVURTJKV0s2L3k5MHlIYnVBRkdQT0YyV29GWDRkTG5KY2gwVkFUMgozODVMbDU1L1hCU1pvUGNycytzYTFwVTFVcVRNSnhuNmorM3FUdmVFV05XU1hjT0FEOVliUHdzSmpjZWdMd0JLCnJmdld4ZmhCSjZDcW4vdTR1UFYzK2Z2LzExRVNPVUJITGZHVkFyY3JteERBcm1ENUlGcmRLWTNacFlXVWtYTFcKVnV4aFdiME1BVyt6RUtsb1N6TGxwR1JVNkJ6M0ZPR2w0L01VYU9YN0RQcUk5bnZmQVp5WmJ5Q1FNV0V1dDBiYwpacmpxd3RrQUF2TGZEdlVDZ2dFQkFPMkRBZHhTYjRYb1Z6MHphZ01qRU5SNjVuN09pOGxaaWYwbWNCYVBPWHpPCmR4S1R2OFNtSmluQlRabGNHRmtFeFlTWHpOWUNMWkcxd003NXl2VW4vUmFWMURzTThBbC8yYm1wbzJuRnNlYVAKamZpME0xK3lzUTV5ajhrdDZjWVBoSzc2eFc4NXJjU1hjUTJlV1Q2M21pRW5nVHBJTFZnc1dHYTRySkRiWHdVaApVdXJVY0NnQXBMNGxNa2JSckNyaEgxenZaNGtuenI0YzJBdHpCS3NoazJ5Y3BSdGtST2ZJUzNwenYxSFRuVXZTCmxDbmhHUTZBamd2OWpMSWQzckIvQzRyVHdldkg3RmptejNPcFovdDI2V21KbzJJNGV0aEFjb3F5Ynl6RFdUS3gKMWYvVEp2NG9WTGhzQ2pCS0ZVdElZMng5SWtpWWhrN0o4cjRaWkg1SzRSY0NnZ0VCQUtXNjZ2OGtoUWlKZ1RxaQpUZjdTZ0gzVmw1QWtYNnpvWDBuYnRqOXJubExvL2FyVXh4a3JkdFlJSzlpbWdabDhBVGZobVJzOGdQVVdhM1kzClJXcmF0N0ZyY3VOSi9Oa0N2eDFLMWtsOVRnVytHN3hVSEt1UHJPY21QdHpQVlRtWUhrTDY0U0FFWjh2dDd2YTYKTUFvZkthSTNUWndlVWRsbjFDdVMxVCtDdUNFUFlpd3V6enJWVXBtVzFmN0hYVTN0WnZZMXNSQWtOVGpUTUFlKwpHdTJDMzYyQnNydmxPT3pnT3FYOCttTjZMcmNyMUJXL0NLOG1IaWV6MTZpaHFnY21Nb3VYM0dJamtmMnJlZk12Ckp3WTJzRS9TdHVldUFtMVRYSStCaFhVVzlzRGFKVDNyaFQ4S2hITlpPTGlTVUV6YmdDU0VYVFhVNkhVL3BCZmMKd1RPYldzMENnZ0VBQk5FQVM2aDhUSG5lc3dZRTQxVmx0UGxkRFR0QkNHOUJaaG5PY2hhcmNzVjVFcTVlV0MySwpYcFJsNzNNM3B5NTZsdXJCSTZIZHJMUEQyaTZrbC80Y21zV2xEU0dCQ0tCSUdRVEFwSmQydVJjMktOSDJyTDBoCjdBb1VzbDYwKytnNnA1VzhSVG9sTlBSaFBZWjFodGtRVGhYUUFBK1FvOVlhWU5MajVQZ2Q0Q3ZCMDdORkp2cUUKWExyQ1h6OUhQNE5iTUhaR1lqaWxiNk9FR2c5V0MrWmRaL2x4TzdIMzE3OXZFR2VpZkpWTy9rZWg2NHQrQjVaQgp5eXAwSFBTUUhJSW5DTVNzalF4NzFYMnd2VWExTGh0R05uYXRFb1BVc2VmMHFxMWRwY204V0ZQVTVDQXpEVHBpCkpXOURjYUUrOTB6YmYwcTJWRVNMakxONXNiTXdINE9ETndLQ0FRQStwUlhsS1hYY2hnZUlodHZ5S2FybXM2RlQKQklSQzFzbk03dkRWQjg0OXlPLzVsUTVkZys1UldVYm9hbFVVeXFtSXhmcUdYdEdONnlObGZBOGNvS3owUCtLNQpWV1FyeHMwMUtZZEtxM3I3Qkp2Uk9ZSWExRkF4YVdzNlB5NU9QSk04OXlRdXNxVUNtMW4vMDIyeUhQRy9odHkyCnR1VWlYWFA5b0NCbkszT3VYWE5RRThDVjhKR2MxMzhaaWlYQ3pTWDZTMmhMMXpiMjlweTdVUWJ0Mk02aHg2dEkKODR5ZFZoUlA0VXVCQURvKzZ3Mlp1ZFdDUW04Y1NwU0h1NUl0UjhBZldCVGdETmwxVFgxMG1OTE5PNEJUZW1FQgpQTzJ0c2VPS012ZFZVcEpINVlZdUI4c1NCSlVGa3JTekZCeFZFSFRjY3JTU1BSSlpPVFBoNHlMK3BKWVMKLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0K\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/credentials/domains/SDADockerRegistry/clients/sas.detectionDefinition",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"credentials",
+										"domains",
+										"SDADockerRegistry",
+										"clients",
+										"sas.detectionDefinition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Deployment Definition",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"detectionURL\": \"https://payments.sasserver.demo.sas.com\",\r\n  \"destination\": \"SDADockerRegistry\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/deploymentDefinitions?organization=5fc1b8fa-ad15-41a7-ac35-1d2dae8ca579",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deploymentDefinitions"
+									],
+									"query": [
+										{
+											"key": "organization",
+											"value": "5fc1b8fa-ad15-41a7-ac35-1d2dae8ca579"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Deployment Definition",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/deploymentDefinitions?organization=5fc1b8fa-ad15-41a7-ac35-1d2dae8ca579",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deploymentDefinitions"
+									],
+									"query": [
+										{
+											"key": "organization",
+											"value": "5fc1b8fa-ad15-41a7-ac35-1d2dae8ca579"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Deployment Definition",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "If-Match",
+										"value": "W/\"1695888805636024000\"",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"detectionURL\": \"https://aplct.sasserver.demo.sas.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/deploymentDefinitions?organization=023269fc-8ccf-492f-b749-8a3a2e605508",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deploymentDefinitions"
+									],
+									"query": [
+										{
+											"key": "organization",
+											"value": "023269fc-8ccf-492f-b749-8a3a2e605508"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Deployment Definitions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/deploymentDefinitions?organization=e42d88bd-8e70-4e54-b80e-822e6ceaee15",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deploymentDefinitions"
+									],
+									"query": [
+										{
+											"key": "organization",
+											"value": "e42d88bd-8e70-4e54-b80e-822e6ceaee15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Deployment",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/deployments?organization=119c788a-2c93-4f8f-aa24-67f9a7f2f818",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deployments"
+									],
+									"query": [
+										{
+											"key": "organization",
+											"value": "119c788a-2c93-4f8f-aa24-67f9a7f2f818"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Deployment Definition",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/deploymentDefinitions?organization=e42d88bd-8e70-4e54-b80e-822e6ceaee15",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deploymentDefinitions"
+									],
+									"query": [
+										{
+											"key": "organization",
+											"value": "e42d88bd-8e70-4e54-b80e-822e6ceaee15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Deployments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/deployments",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deployments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Deployment Updates",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"displayName\": \"FRAUD\",\r\n  \"name\": \"FRAUD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/deployments/updates",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"deployments",
+										"updates"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Projects",
+					"item": [
+						{
+							"name": "List Projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/organizations/3c6537dc-1e7f-4d03-98aa-fa781ed23e59/projects",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"3c6537dc-1e7f-4d03-98aa-fa781ed23e59",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Project",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/f14b4a59-7b3a-468d-96f4-0dca072c5c98/projects/d77b2307-8a03-43c6-81ba-93c8a716c3ab",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"f14b4a59-7b3a-468d-96f4-0dca072c5c98",
+										"projects",
+										"d77b2307-8a03-43c6-81ba-93c8a716c3ab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Lists to Project",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "If-Match",
+										"value": "W/\"1678181518203471000\"",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json-patch+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\r\n    \"op\": \"add\", \r\n    \"path\": \"listRelations\", \r\n    \"value\": \"c6654394-5515-428d-bb20-5931f4951623\"\r\n}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/f14b4a59-7b3a-468d-96f4-0dca072c5c98/projects/d77b2307-8a03-43c6-81ba-93c8a716c3ab",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"f14b4a59-7b3a-468d-96f4-0dca072c5c98",
+										"projects",
+										"d77b2307-8a03-43c6-81ba-93c8a716c3ab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Project Rules",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/projects/d77b2307-8a03-43c6-81ba-93c8a716c3ab/rules",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"projects",
+										"d77b2307-8a03-43c6-81ba-93c8a716c3ab",
+										"rules"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Project Rule Audit History",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/projects/0e3b83d3-4d84-4ed1-89d5-81a804a73b89/rules/auditLog?baseRuleId=50003#withQuery",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"projects",
+										"0e3b83d3-4d84-4ed1-89d5-81a804a73b89",
+										"rules",
+										"auditLog"
+									],
+									"query": [
+										{
+											"key": "baseRuleId",
+											"value": "50003"
+										}
+									],
+									"hash": "withQuery"
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Project Variables",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/f14b4a59-7b3a-468d-96f4-0dca072c5c98/projects/d77b2307-8a03-43c6-81ba-93c8a716c3ab/variables",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"f14b4a59-7b3a-468d-96f4-0dca072c5c98",
+										"projects",
+										"d77b2307-8a03-43c6-81ba-93c8a716c3ab",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Schemas",
+					"item": [
+						{
+							"name": "Get Message SchemaS",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionMessageSchema/messages",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionMessageSchema",
+										"messages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Message Schema",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionMessageSchema/messages/3ccbdcd4-496b-4ea1-bfac-75d64302a9c5",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionMessageSchema",
+										"messages",
+										"3ccbdcd4-496b-4ea1-bfac-75d64302a9c5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Message Profile Schema",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"name\": \"FRAUD Profile\",\r\n \"displayName\": \"FRAUD Profile\",\r\n \"type\": \"profile\",\r\n \"description\": \"User variable sets of organization FRAUD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionMessageSchema/messages",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionMessageSchema",
+										"messages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Message Schema VariableSets",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionMessageSchema/messages/1a1e5494-5518-4531-b939-7423e1306dfb/variableSets",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionMessageSchema",
+										"messages",
+										"1a1e5494-5518-4531-b939-7423e1306dfb",
+										"variableSets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Message Schema Variables",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionMessageSchema/messages/1a1e5494-5518-4531-b939-7423e1306dfb/variables",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionMessageSchema",
+										"messages",
+										"1a1e5494-5518-4531-b939-7423e1306dfb",
+										"variables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Message Schema",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionMessageSchema/messages/f0a42c5e-5567-4801-a459-f4516ff82005",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionMessageSchema",
+										"messages",
+										"f0a42c5e-5567-4801-a459-f4516ff82005"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Message Schema",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "If-Match",
+										"value": "W/\"1678189367869134000\"",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"type\": \"fraud\",\r\n\"revision\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionMessageSchema/messages/490499d8-01b3-456f-82a2-159b8419d0e8",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionMessageSchema",
+										"messages",
+										"490499d8-01b3-456f-82a2-159b8419d0e8"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Messages",
+					"item": [
+						{
+							"name": "Create BinaryION",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    message: {\r\n        smh: {\r\n            multi_org_name: \"Fraud\",\r\n            schema: \"New Account\"\r\n            },\r\n        aplct_metadata:\r\n            {\r\n        aplct_id: \"aplct_0000001\",\r\n        aplct_date: 2023-03-09T02:00:00Z\r\n            },\r\n        aplct_details:\r\n            {\r\n            aplct_title: \"Mr\",\r\n            aplct_forename: \"Steve\",\r\n            aplct_surname: \"Seymour\",\r\n            aplct_birth_dt: 1970-11-08,\r\n            aplct_email_address: \"paul.seymour@sas.com\",\r\n            aplct_phone_number: \"07557845606\"\r\n            },\r\n        aplct_finance:\r\n            {\r\n            aplct_income: 750\r\n            },\r\n        aplct_location:\r\n            {\r\n            aplct_address_num: \"199\",\r\n            aplct_address_street: \"Nevsky Prospekt\",\r\n            aplct_address_city: \"Saint Petersburg\",\r\n            aplct_address_country: \"RU\",\r\n            aplct_address_zip: \"196105\"\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detection/generate/binaryION",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detection",
+										"generate",
+										"binaryION"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create BinaryION Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{SMH:\r\n    {\r\n    smh_cust_type: 'I',\r\n    smh_acct_type: 'CC',\r\n    smh_authenticate_mtd: 'CP',\r\n    smh_channel_type: 'C',\r\n    smh_activity_type: 'CA',\r\n    xqo_cust_num: 'PA1_001_71588823552',\r\n    xqo_cust_cntry_code: '608',\r\n    hqo_card_num: '5432105058682000',\r\n    hct_term_owner_name: '168 DEALS.COM',\r\n    hct_term_owner_id: '458784136198',\r\n    hct_acq_id: '991174073',\r\n    hct_term_cntry_code: '344',\r\n    tca_client_amt: '1495',\r\n    tca_client_curr_code: '608',\r\n    tca_merch_amt: '230',\r\n    tca_merch_curr_code: '344',\r\n    ucm_pos: '01',\r\n    ucm_ch_evrfy: '0',\r\n    ucm_cvv2_psnt: '0',\r\n    rqo_tran_date_alt: '20221108',\r\n    rqo_tran_time_alt: '15:56:03',\r\n    rqo_tran_date: '20221108',\r\n    rqo_tran_time: '15:56:03',\r\n    hct_mer_mcc: '5411',\r\n    hqo_limit_type: 'POS',\r\n    hqo_limit_amt: '1000'\r\n    }\r\n} \r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detection/generate/binaryION",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detection",
+										"generate",
+										"binaryION"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create TextION",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Users/sukpse/OneDrive - SAS/Demo Server/Azure/dev-03/transactions/application.bin"
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detection/generate/textION",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detection",
+										"generate",
+										"textION"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Generate a JSON Body",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Users/sukpse/OneDrive - SAS/Demo Server/Azure/dev-03/transactions/application.bin"
+									}
+								},
+								"url": {
+									"raw": "https://fraud.fsi-dev-03.fsipresalesazure.unx.sas.com/detection/generate/executeFromION",
+									"protocol": "https",
+									"host": [
+										"fraud",
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detection",
+										"generate",
+										"executeFromION"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Rules",
+					"item": [
+						{
+							"name": "Create a Rule",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Alert Rule\",\r\n  \"description\": \"Test rule to check alerts\",\r\n  \"orgUnitId\": \"a0816260-aae7-472b-87d4-eb4596e2b012\",\r\n  \"schemaName\": \"New Account\",\r\n  \"ruleTypeName\": \"decision\",\r\n  \"alertType\": \"NA\",\r\n  \"alertReason\": \"Application Alerted\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/projects/d77b2307-8a03-43c6-81ba-93c8a716c3ab/rules",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"projects",
+										"d77b2307-8a03-43c6-81ba-93c8a716c3ab",
+										"rules"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Rule",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.detection.rule.parsed+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/projects/d77b2307-8a03-43c6-81ba-93c8a716c3ab/rules/4cf36891-3370-4483-b3b7-9c5c38f482f3",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"projects",
+										"d77b2307-8a03-43c6-81ba-93c8a716c3ab",
+										"rules",
+										"4cf36891-3370-4483-b3b7-9c5c38f482f3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Rules for a Project",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.detection.rule.parsed+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/projects/d77b2307-8a03-43c6-81ba-93c8a716c3ab/rules/",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"projects",
+										"d77b2307-8a03-43c6-81ba-93c8a716c3ab",
+										"rules",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Decisions",
+					"item": [
+						{
+							"name": "Applications",
+							"item": [
+								{
+									"name": "Get Aplct Decision Description",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://aplct.sasserver.demo.sas.com/detection/decision/description",
+											"protocol": "http",
+											"host": [
+												"aplct",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"decision",
+												"description"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Execute Aplct Detect Decision",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "vnd/sas.detection.message.New Account+ion",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    message: {\r\n        request: \r\n            {\r\n            schemaName: \"Application Fraud\",\r\n            messageClassificationName: \"APPLICATIONS\",\r\n            messageTz: \"-0800\",\r\n            restResponseFlg: 1\r\n            },\r\n        aplct_metadata:\r\n            {\r\n            aplct_id: \"aplct_0000001\",\r\n            aplct_date: 2023-03-09T02:00:00Z\r\n            },\r\n        aplct_product:\r\n            {\r\n            aplct_type: \"Card\",\r\n            aplct_subtype:\"Credit Card\",\r\n            aplct_credit: 1000\r\n            },\r\n        aplct_details:\r\n            {\r\n            aplct_title: \"Mr\",\r\n            aplct_forename: \"VERDELL\",\r\n            aplct_surname: \"HUFFSTUTTER\",\r\n            aplct_birth_dt: 1970-11-08,\r\n            aplct_email_address: \"fraud@sas.com\",\r\n            aplct_phone_number: \"07557845606\",\r\n            aplct_age: 63,\r\n            aplct_emp_indicator: \"E\",\r\n            aplct_gender: \"F\",\r\n            aplct_marital_status: \"Single\"\r\n            },\r\n        aplct_finance:\r\n            {\r\n            aplct_income: 23000\r\n            },\r\n        aplct_device:\r\n            {\r\n            aplct_hostname: \"laptop1.abc\",\r\n            aplct_ip_address: \"192.168.0.0\"\r\n            },\r\n        aplct_location:\r\n            {\r\n            aplct_address_num: \"9000\",\r\n            aplct_address_street: \"ANDOVER DRIVE\",\r\n            aplct_address_city: \"DALLAS\",\r\n            aplct_address_state: \"TX\",\r\n            aplct_address_country: \"USA\",\r\n            aplct_address_country_iso_num: \"840\",\r\n            aplct_address_zip: \"75207\"\r\n        }\r\n    }\r\n}"
+										},
+										"url": {
+											"raw": "http://aplct.sasserver.demo.sas.com/detection/decision/execute?debug=true",
+											"protocol": "http",
+											"host": [
+												"aplct",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"decision",
+												"execute"
+											],
+											"query": [
+												{
+													"key": "debug",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Payments",
+							"item": [
+								{
+									"name": "Get Payments Decision Description",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://payments.sasserver.demo.sas.com/detection/decision/description",
+											"protocol": "http",
+											"host": [
+												"payments",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"decision",
+												"description"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Execute Credit Card Detect Decision CP",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "vnd/sas.detection.message.New Account+ion",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "// Refer to https://rndconfluence.sas.com/display/FSIPM/SAS+Solution+Variable+Set+-+Solution\r\n// Refer to https://rndconfluence.sas.com/display/FSIPM/SAS+Detection+Architecture+Variable+Set+-+Request\r\n{\r\n    message: {\r\n        request: \r\n            {\r\n            schemaName: \"Credit Card Fraud\",\r\n            messageClassificationName: \"PAYMENTS\",\r\n            messageTz: \"-0800\",\r\n            messageDtTm: 2023-10-03T07:58:30Z,\r\n            restResponseFlg: 1,\r\n            decisioningInd: 1,\r\n            },\r\n        solution:\r\n            {\r\n            solution: \"Credit Card Fraud\",\r\n            activityType: \"CA\", //smh_activity_type (CA=Payment card authorization)\r\n            authenticationType: \"CP\", //smh_authenticate_mtd (CP=Chip Card with PIN)\r\n            channelType: \"CD\", //smh_channel_type (CD=Payment Card)\r\n            customerType: \"PE\", //smh_cust_type (PE=Personal)\r\n            originationType: \"CC\" //smh_acct_type (CC=Credit Card)\r\n            },\r\n        creditcard:\r\n            {\r\n            number: \"1234567890\",\r\n            balance: 1000,\r\n            availableBalance: 100\r\n            },\r\n        cardfinancial:\r\n            {\r\n            cardPresentInd: \"0\", //ucm_card_present (0=CP, 1=CNP) \r\n            amount: 1,\r\n            posEntryType: \"80\", //ucm_pos (79=chip card fb to keyed, 80=chip card fb to magnetic stripe., 90=Entire magnetic stripe read, 81=Internet/Ecommerce)\r\n            terminalPanEntryInd: \"9\" //ucm_term_pan_entry_cap (3=Contactless, 8=Magnetic stripe reader, key entry, and EMV-compatible chip reader. 9=EMV compatible chip reader.)\r\n            },\r\n        customer:\r\n            {\r\n            addressCountryCode: \"840\" //hct_ch_cntry_code (840=USA) https://www.worldometers.info/country-codes/\r\n            },\r\n        merchant:\r\n            {\r\n            countryCode: \"826\",\r\n            categoryCode: \"5013\" //aqm_mer_mcc (0000=invalid,7273=high risk, 5013=good, 6011=ATM)\r\n            }\r\n    }\r\n}"
+										},
+										"url": {
+											"raw": "http://payments.sasserver.demo.sas.com/detection/decision/execute?debug=true",
+											"protocol": "http",
+											"host": [
+												"payments",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"decision",
+												"execute"
+											],
+											"query": [
+												{
+													"key": "debug",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Execute Credit Card Detect Decision CNP",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "vnd/sas.detection.message.New Account+ion",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "// Refer to https://rndconfluence.sas.com/display/FSIPM/SAS+Solution+Variable+Set+-+Solution\r\n// Refer to https://rndconfluence.sas.com/display/FSIPM/SAS+Detection+Architecture+Variable+Set+-+Request\r\n{\r\n    message: {\r\n        request: \r\n            {\r\n            schemaName: \"Credit Card Fraud\",\r\n            messageClassificationName: \"PAYMENTS\",\r\n            messageTz: \"-0800\",\r\n            messageDtTm: 2023-10-03T07:58:30Z,\r\n            restResponseFlg: 1,\r\n            decisioningInd: 1,\r\n            },\r\n        solution:\r\n            {\r\n            solution: \"Credit Card Fraud\",\r\n            activityType: \"CA\", //smh_activity_type (CA=Payment card authorization)\r\n            authenticationType: \"CP\", //smh_authenticate_mtd (CP=Chip Card with PIN)\r\n            channelType: \"CD\", //smh_channel_type (CD=Payment Card)\r\n            customerType: \"PE\", //smh_cust_type (PE=Personal)\r\n            originationType: \"CC\" //smh_acct_type (CC=Credit Card)\r\n            },\r\n        creditcard:\r\n            {\r\n            number: \"1234567890\"\r\n            },\r\n        cardfinancial:\r\n            {\r\n            cardPresentInd: \"0\", //ucm_card_present (1=CNP) \r\n            amount: 250,\r\n            posEntryType: \"81\" //ucm_pos (81=Internet/Ecommerce)\r\n            },\r\n        merchant:\r\n            {\r\n            name: \"SASBank\", //aqm_term_name (Thoughtblab=bad, SASBank=good)\r\n            categoryCode: \"5013\" //aqm_mer_mcc (0000=invalid,7273=high risk, 5013=good)\r\n            }\r\n    }\r\n}"
+										},
+										"url": {
+											"raw": "http://payments.sasserver.demo.sas.com/detection/decision/execute?debug=true",
+											"protocol": "http",
+											"host": [
+												"payments",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"decision",
+												"execute"
+											],
+											"query": [
+												{
+													"key": "debug",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Execute Credit Card Detect Decision NON-MON",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "vnd/sas.detection.message.New Account+ion",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "// Refer to https://rndconfluence.sas.com/display/FSIPM/SAS+Solution+Variable+Set+-+Solution\r\n// Refer to https://rndconfluence.sas.com/display/FSIPM/SAS+Detection+Architecture+Variable+Set+-+Request\r\n{\r\n    message: {\r\n        request: \r\n            {\r\n            schemaName: \"Credit Card Fraud\",\r\n            messageClassificationName: \"PAYMENTS\",\r\n            messageTz: \"-0800\",\r\n            messageDtTm: 2023-10-03T07:58:30Z,\r\n            restResponseFlg: 1,\r\n            decisioningInd: 1\r\n            },\r\n        solution:\r\n            {\r\n            solution: \"Credit Card Fraud\",\r\n            activityType: \"CA\", //smh_activity_type (CA=Payment card authorization)\r\n            authenticationType: \"CP\", //smh_authenticate_mtd (CP=Chip Card with PIN)\r\n            channelType: \"CD\", //smh_channel_type (CD=Payment Card)\r\n            customerType: \"PE\", //smh_cust_type (PE=Personal)\r\n            originationType: \"CC\" //smh_acct_type (CC=Credit Card)\r\n            },\r\n        creditcard:\r\n            {\r\n            number: \"1234567890\"\r\n            },\r\n        demographic:\r\n            {\r\n            type: \"MM\" //tng_tran_type (PC/PW/OW/OC=> PW Reset, P = Phone & O = Online) \r\n            }\r\n    }\r\n}"
+										},
+										"url": {
+											"raw": "http://payments.sasserver.demo.sas.com/detection/decision/execute?debug=true",
+											"protocol": "http",
+											"host": [
+												"payments",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"decision",
+												"execute"
+											],
+											"query": [
+												{
+													"key": "debug",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Restart SCR",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "vnd/sas.detection.message.New Account+ion",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://payments.sasserver.demo.sas.com/detection/restart",
+											"protocol": "http",
+											"host": [
+												"payments",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"restart"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Detect Decisions Verbose",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://payments.sasserver.demo.sas.com/detection/decision/setverbose?level=13",
+											"protocol": "http",
+											"host": [
+												"payments",
+												"sasserver",
+												"demo",
+												"sas",
+												"com"
+											],
+											"path": [
+												"detection",
+												"decision",
+												"setverbose"
+											],
+											"query": [
+												{
+													"key": "level",
+													"value": "13"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Alerts",
+					"item": [
+						{
+							"name": "Get Alert Types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/alertTypes",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"alertTypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Alert Type",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"code\": \"NEWACCT\",\r\n\"name\": \"NEW ACCOUNT\",\r\n\"variableRelation\": {\r\n    \"messageName\": \"Application Fraud\",\r\n    \"pathName\": \".aplct_metadata\",\r\n    \"name\": \"aplct_id\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/alertTypes",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"alertTypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Alert Type",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/alertTypes/NA",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"alertTypes",
+										"NA"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Alert Types by Message Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/alertTypes?messageName=Credit Card",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"alertTypes"
+									],
+									"query": [
+										{
+											"key": "messageName",
+											"value": "Credit Card"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Lists",
+					"item": [
+						{
+							"name": "Get SDA Lists DEPRECATED",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/lists",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Viya List Data",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/listData/lists",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Viya List",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/listData/lists/81f862cf-6f67-4e35-a66d-a1f0e7915a14",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"81f862cf-6f67-4e35-a66d-a1f0e7915a14"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Viya List",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"label\": \"Country Watchlist\",\r\n  \"name\": \"country_watchlist\",\r\n  \"description\": \"A list of counties on a watchlist\",\r\n  \"state\": \"active\",\r\n  \"columns\": [\r\n    {\r\n      \"name\": \"cntry_iso3\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 1,\r\n      \"isKey\": true,\r\n      \"keyPosition\": 1\r\n    },\r\n    {\r\n      \"name\": \"cntry_iso2\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 2,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_iso_num\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 3,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_name\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 4,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_lat\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 5,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_long\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 6,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_sanction\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 7,\r\n      \"isKey\": false\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/listData/lists",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update List Properties",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"label\": \"Country Watchlist\",\r\n  \"name\": \"country_watchlist\",\r\n  \"description\": \"A list of counties on a watchlist\",\r\n  \"state\": \"active\",\r\n  \"columns\": [\r\n    {\r\n      \"name\": \"cntry_iso3\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 1,\r\n      \"isKey\": true,\r\n      \"keyPosition\": 1\r\n    },\r\n    {\r\n      \"name\": \"cntry_iso2\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 2,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_iso_num\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 3,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_name\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 4,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_lat\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 5,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_long\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 6,\r\n      \"isKey\": false\r\n    },\r\n    {\r\n      \"name\": \"cntry_sanction\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 7,\r\n      \"isKey\": false\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/listData/lists/c6654394-5515-428d-bb20-5931f4951623",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"c6654394-5515-428d-bb20-5931f4951623"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set List State",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/listData/lists/6007f14e-0822-497b-9a4e-0717b7821601/state?value=\"active\"",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"6007f14e-0822-497b-9a4e-0717b7821601",
+										"state"
+									],
+									"query": [
+										{
+											"key": "value",
+											"value": "\"active\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Viya Country List Content",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.collection+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"cntry_iso3\": \"RUS\",\r\n      \"cntry_iso2\": \"RU\",\r\n      \"cntry_iso_num\": \"643\",\r\n      \"cntry_name\": \"Russian Federation\",\r\n      \"cntry_lat\":\"60\",\r\n      \"cntry_long\":\"100\",\r\n      \"cntry_sanction\":\"Y\"\r\n    },\r\n    {\r\n      \"cntry_iso3\": \"NIC\",\r\n      \"cntry_iso2\": \"NI\",\r\n      \"cntry_iso_num\": \"558\",\r\n      \"cntry_name\": \"Nicaragua\",\r\n      \"cntry_lat\":\"13\",\r\n      \"cntry_long\":\"-85\",\r\n      \"cntry_sanction\":\"Y\"\r\n    },\r\n    {\r\n      \"cntry_iso3\": \"IRN\",\r\n      \"cntry_iso2\": \"IR\",\r\n      \"cntry_iso_num\": \"364\",\r\n      \"cntry_name\": \"Iran\",\r\n      \"cntry_lat\":\"32\",\r\n      \"cntry_long\":\"53\",\r\n      \"cntry_sanction\":\"Y\"\r\n    },\r\n    {\r\n      \"cntry_iso3\": \"SYR\",\r\n      \"cntry_iso2\": \"SY\",\r\n      \"cntry_iso_num\": \"760\",\r\n      \"cntry_name\": \"Syrian Arab Republic\",\r\n      \"cntry_lat\":\"35\",\r\n      \"cntry_long\":\"38\",\r\n      \"cntry_sanction\":\"Y\"\r\n    },\r\n    {\r\n      \"cntry_iso3\": \"SOM\",\r\n      \"cntry_iso2\": \"SO\",\r\n      \"cntry_iso_num\": \"706\",\r\n      \"cntry_name\": \"Somalia\",\r\n      \"cntry_lat\":\"10\",\r\n      \"cntry_long\":\"49\",\r\n      \"cntry_sanction\":\"Y\"\r\n    },\r\n    {\r\n      \"cntry_iso3\": \"MLI\",\r\n      \"cntry_iso2\": \"ML\",\r\n      \"cntry_iso_num\": \"466\",\r\n      \"cntry_name\": \"Mali\",\r\n      \"cntry_lat\":\"17\",\r\n      \"cntry_long\":\"-4\",\r\n      \"cntry_sanction\":\"Y\"\r\n    },\r\n    {\r\n      \"cntry_iso3\": \"NIC\",\r\n      \"cntry_iso2\": \"NI\",\r\n      \"cntry_iso_num\": \"558\",\r\n      \"cntry_name\": \"Nicaragua\",\r\n      \"cntry_lat\":\"13\",\r\n      \"cntry_long\":\"-85\",\r\n      \"cntry_sanction\":\"Y\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/listData/lists/4e4a9ee3-7755-4f3f-96ff-5b5b8c882557/contents",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"4e4a9ee3-7755-4f3f-96ff-5b5b8c882557",
+										"contents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Viya Country List Contents",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/listData/lists/c6654394-5515-428d-bb20-5931f4951623/contents",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"c6654394-5515-428d-bb20-5931f4951623",
+										"contents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Viya List Card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"label\": \"CCard Watchlist\",\r\n  \"name\": \"ccard_watchlist\",\r\n  \"description\": \"A list of credit cards on a watchlist\",\r\n  \"state\": \"inactive\",\r\n  \"columns\": [\r\n    {\r\n      \"name\": \"ccard_num\",\r\n      \"dataType\": \"string\",\r\n      \"position\": 1,\r\n      \"isKey\": true,\r\n      \"keyPosition\": 1,\r\n      \"dataMask\": {\r\n        \"name\": \"MaskStart\",\r\n        \"regex\": \".(....$)|.\",\r\n        \"replace\": \"*$1\",\r\n        \"example\": \"****1234\"\r\n        }\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/listData/lists",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Viya Card List Content",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.collection+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"ccard_num\": \"1234567890123456\"\r\n    },\r\n    {\r\n      \"ccard_num\": \"0987654321098765\"\r\n    },\r\n    {\r\n      \"ccard_num\": \"1739038473459123\"\r\n    }    \r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/listData/lists/511e632e-043c-4c89-a34e-4e39b06e1bd3/contents",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"511e632e-043c-4c89-a34e-4e39b06e1bd3",
+										"contents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Viya Card List Contents",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/listData/lists/511e632e-043c-4c89-a34e-4e39b06e1bd3/contents",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"511e632e-043c-4c89-a34e-4e39b06e1bd3",
+										"contents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Viya Card List Contents UNMASK",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.sas.listdata.list+json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/listData/lists/511e632e-043c-4c89-a34e-4e39b06e1bd3/privilegedContents",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"listData",
+										"lists",
+										"511e632e-043c-4c89-a34e-4e39b06e1bd3",
+										"privilegedContents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register list with SDA DEPRECATED",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/lists/c6654394-5515-428d-bb20-5931f4951623",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"lists",
+										"c6654394-5515-428d-bb20-5931f4951623"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register list with SDA Organisation",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/detectionDefinition/organizations/023269fc-8ccf-492f-b749-8a3a2e605508/listRelationships/6007f14e-0822-497b-9a4e-0717b7821601",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"023269fc-8ccf-492f-b749-8a3a2e605508",
+										"listRelationships",
+										"6007f14e-0822-497b-9a4e-0717b7821601"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get lists associated with SDA Organisation",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/organizations/f14b4a59-7b3a-468d-96f4-0dca072c5c98/lists",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"organizations",
+										"f14b4a59-7b3a-468d-96f4-0dca072c5c98",
+										"lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete list with SDA",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://fsi-dev-03.fsipresalesazure.unx.sas.com/detectionDefinition/lists/c6654394-5515-428d-bb20-5931f4951623",
+									"protocol": "https",
+									"host": [
+										"fsi-dev-03",
+										"fsipresalesazure",
+										"unx",
+										"sas",
+										"com"
+									],
+									"path": [
+										"detectionDefinition",
+										"lists",
+										"c6654394-5515-428d-bb20-5931f4951623"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Decisioning",
+					"item": [
+						{
+							"name": "UpdateDecisionNodeContent-detectionRule",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n      \"id\": \"a38389ca-b428-48a1-9f01-ecb6b49df120\",\r\n      \"contentType\": \"DS2\",\r\n      \"restContent\": {\r\n        \"uri\": \"/detectionDefinition/decisions/detectionRule\",\r\n        \"objectTypeName\": \"detectionRule\",\r\n        \"editorAppId\": \"detectiondefinition\",\r\n        \"versioned\": false\r\n      }\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/decisions/decisionNodeTypes/d44aeac7-3859-4673-91a2-bd00af2741c5/content",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"decisions",
+										"decisionNodeTypes",
+										"d44aeac7-3859-4673-91a2-bd00af2741c5",
+										"content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateDecisionNodeContent-detectionStep",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "   {\r\n      \"id\": \"023eefdd-d011-4a7f-a774-357fef44a327\",\r\n      \"contentType\": \"DS2\",\r\n      \"restContent\": {\r\n        \"uri\": \"/detectionDefinition/decisions/detectionStep\",\r\n        \"objectTypeName\": \"detectionStep\",\r\n        \"editorAppId\": \"detectiondefinition\",\r\n        \"versioned\": false\r\n       }\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/decisions/decisionNodeTypes/d8d59bfc-7605-439a-9070-a58da26db376/content",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"decisions",
+										"decisionNodeTypes",
+										"d8d59bfc-7605-439a-9070-a58da26db376",
+										"content"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Publishing",
+					"item": [
+						{
+							"name": "Get Publishing DestinationS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/modelPublish/destinations",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"modelPublish",
+										"destinations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Publishing Destination",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://sasserver.demo.sas.com/modelPublish/destinations/SDADockerRegistry",
+									"protocol": "https",
+									"host": [
+										"sasserver",
+										"demo",
+										"sas",
+										"com"
+									],
+									"path": [
+										"modelPublish",
+										"destinations",
+										"SDADockerRegistry"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "username",
+				"value": "sas",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://sasserver.demo.sas.com/SASLogon/oauth/token",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "Orion123",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "Orion123",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "postman",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "openid, *",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0L1NBU0xvZ29uL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJqdGkiOiI4OTRjNWQ1Y2E1ZGQ0ZDc4YmI5Y2Y5ZmNiNzBlZmVhOSIsImF1dGhvcml0aWVzIjpbIlNBU0FkbWluaXN0cmF0b3JzIl0sInN1YiI6ImEyMTkxOWVhLTdhNTktNGFiYy1iYzQwLTliOWFjNTJjMDdlZCIsInNjb3BlIjpbIm9wZW5pZCIsIlNBU0FkbWluaXN0cmF0b3JzIl0sImNsaWVudF9pZCI6InBvc3RtYW4iLCJjaWQiOiJwb3N0bWFuIiwiYXpwIjoicG9zdG1hbiIsImdyYW50X3R5cGUiOiJwYXNzd29yZCIsInVzZXJfaWQiOiJhMjE5MTllYS03YTU5LTRhYmMtYmM0MC05YjlhYzUyYzA3ZWQiLCJvcmlnaW4iOiJ1YWEiLCJ1c2VyX25hbWUiOiJzYXNib290IiwiZW1haWwiOiJub25lIiwiYXV0aF90aW1lIjoxNjc2OTk4OTM5LCJyZXZfc2lnIjoiNWI5NzAzNjAiLCJpYXQiOjE2NzY5OTg5MzksImV4cCI6MTY3NzAwMjUzOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC9TQVNMb2dvbi9vYXV0aC90b2tlbiIsInppZCI6InVhYSIsImF1ZCI6WyJwb3N0bWFuIiwib3BlbmlkIl19.dBEUrM2BHVe0WWqNlJNCvI21YwFz7rtROOxK0eGmrQtY6HcpOp4vNBbWQa2QnEYLEyFNNTjfLKOYvHTYD-uGWKiC6sZpb9EsMdjnRzC5sBOn5Ud8iAUeigDyvUUbv2UCcZ8YyJfb0YzsP0qvEj7InPpwYAosaV0xXJv_mm_mkTE_jTrTCz0UFHdB93T_n5TvwWDrnYKvr9JJR7KCODZ_UUBSWv_o36Wa2nsQQYmqlB85twxMmSzmozgWC5SCLdQi3_5Q6cNEsRZ9XRfcE2pznPTxh0QhNrBEd3EVrnccpGYS2kPh1DCpAAaZoaQKbw1V6F4iXBssxKaFwHsW10MX6g",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "sasboot",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "INGRESS_URL",
+			"value": "https://sasserver.demo.sas.com",
+			"type": "default"
+		},
+		{
+			"key": "CLIENTID",
+			"value": "postman",
+			"type": "default"
+		},
+		{
+			"key": "CLIENTPW",
+			"value": "Orion123",
+			"type": "default"
+		},
+		{
+			"key": "USERNAME",
+			"value": "sas",
+			"type": "default"
+		},
+		{
+			"key": "USERNAMEPW",
+			"value": "Orion123",
+			"type": "default"
+		}
+	]
+}
